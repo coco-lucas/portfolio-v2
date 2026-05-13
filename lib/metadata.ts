@@ -5,7 +5,7 @@ import {
 } from "next/dist/lib/metadata/types/opengraph-types";
 
 // Website base SEO config
-const websiteConfig = {
+export const websiteConfig = {
   name: "Website Name",
   description: "Website description",
   url: "https://lucascoco.com",

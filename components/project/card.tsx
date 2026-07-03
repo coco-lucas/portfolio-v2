@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getLanguageColor } from "@/utils/language-colors";
-import ProjectTabs from "./tabs";
+import ProjectCarousel from "./carousel";
 import Reveal from "@/components/reveal";
 import type { IBadge, ProjectProps } from "@/types/portfolio";
 
@@ -31,8 +31,7 @@ export default function ProjectCard({
   title,
   date,
   isFinished,
-  pcImg,
-  mobileImg,
+  images,
   description,
   badge,
   deployURL,
@@ -92,11 +91,9 @@ export default function ProjectCard({
             </Badge>
           )}
         </div>
-        <ProjectTabs
-          pcImg={pcImg}
-          mobileImg={mobileImg}
-          alt={`${title} Project Images`}
-        />
+        {images.length > 0 && (
+          <ProjectCarousel images={images} alt={`${title} Project Images`} />
+        )}
 
         <h4>{t("project.stack")}:</h4>
         <div className="flex flex-wrap gap-2" tabIndex={6}>

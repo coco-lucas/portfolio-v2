@@ -122,7 +122,7 @@ export default function Home() {
                         duration={0.35}
                         repeatDelay={3}
                         spread={8}
-                        className="[--base-color:var(--foreground)] [--base-gradient-color:#a1a1aa] dark:[--base-color:var(--foreground)] dark:[--base-gradient-color:#a1a1aa]"
+                        className="p-[0.15em] -m-[0.15em] [--base-color:var(--foreground)] [--base-gradient-color:#a1a1aa] dark:[--base-color:var(--foreground)] dark:[--base-gradient-color:#a1a1aa]"
                       >
                         {NAME}
                       </TextShimmer>

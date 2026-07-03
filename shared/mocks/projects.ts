@@ -2,7 +2,10 @@ import type { IProjectData } from "@/types/portfolio";
 
 const generalUrl = process.env.NEXT_PUBLIC_ASSETS_URL + "projects/";
 
-const tereVerde = generalUrl + "tere-verde/";
+// Screenshots follow the numbered convention: <folder>/1.png, 2.png, ...
+const backoffice = generalUrl + "financial-backoffice/";
+const aval = generalUrl + "aval/";
+const goatcom = generalUrl + "goatcom/";
 const orange = generalUrl + "orange/";
 
 export const PROJECTS_LIST: IProjectData[] = [
@@ -10,8 +13,7 @@ export const PROJECTS_LIST: IProjectData[] = [
     title: "SaQ Digital",
     date: "10/2025",
     isFinished: true,
-    pcImg: [],
-    mobileImg: [],
+    images: [backoffice + "1.png"],
     descriptionKey: "project.saq-digital.description",
     badge: [
       "Next.js",
@@ -28,8 +30,7 @@ export const PROJECTS_LIST: IProjectData[] = [
     title: "Avaliação Socioeconômica",
     date: "02/2026",
     isFinished: true,
-    pcImg: [],
-    mobileImg: [],
+    images: [aval + "1.png"],
     descriptionKey: "project.avaliacao-socioeconomica.description",
     badge: ["Next.js", "Express.js", "TypeScript", "Zod"],
   },
@@ -37,8 +38,7 @@ export const PROJECTS_LIST: IProjectData[] = [
     title: "Goatcom",
     date: "11/2025",
     isFinished: true,
-    pcImg: [],
-    mobileImg: [],
+    images: [goatcom + "1.png"],
     descriptionKey: "project.goatcom.description",
     badge: [
       "Angular",
@@ -51,35 +51,11 @@ export const PROJECTS_LIST: IProjectData[] = [
     deployURL: "https://www.goatcom.io/global",
   },
   {
-    title: "Terê Verde",
-    date: "06/2025",
-    isFinished: true,
-    pcImg: [
-      tereVerde + "pc/home.png",
-      tereVerde + "pc/vlibras-home.png",
-      tereVerde + "pc/eventos.png",
-      tereVerde + "pc/saiba-mais-trilhas.png",
-      tereVerde + "pc/trilhas.png",
-      tereVerde + "pc/filtro-bio.png",
-    ],
-    mobileImg: [
-      tereVerde + "mobile/home.png",
-      tereVerde + "mobile/navbar.png",
-      tereVerde + "mobile/eventos.png",
-    ],
-    descriptionKey: "project.tere-verde.description",
-    badge: ["React", "JavaScript", "HTML", "CSS", "JSON-Server"],
-    githubURL: "https://github.com/miguelMFR/tere-verde",
-  },
-  {
     title: "The Orange Experience HUB Portal",
     date: "12/2024",
     isFinished: true,
-    pcImg: [
-      orange + "home.jpeg",
-      orange + "svps.jpeg",
-      orange + "services.jpeg",
-    ],
+    // services.jpeg kept its original name in S3 — rename to 2.jpeg to match the convention
+    images: [orange + "1.jpeg", orange + "services.jpeg"],
     descriptionKey: "project.orange-hub.description",
     badge: ["Java", "SpringBoot", "React", "TypeScript", "CSS"],
     deployURL:

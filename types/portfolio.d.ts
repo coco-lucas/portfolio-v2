@@ -38,10 +38,8 @@ export type ITechStack = {
 };
 
 export interface ProjectCarouselProps {
-  pcImg?: string | string[];
-  mobileImg?: string | string[];
+  images: string[];
   alt: string;
-  type?: "pc" | "mobile";
 }
 
 export interface ProjectProps {
@@ -49,8 +47,7 @@ export interface ProjectProps {
   title: string;
   date?: string;
   isFinished: boolean;
-  pcImg: ProjectCarouselProps["pcImg"];
-  mobileImg?: ProjectCarouselProps["mobileImg"];
+  images: string[];
   description: string;
   badge: IBadge[];
   badgeClassname?: string;

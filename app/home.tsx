@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Github, Instagram } from "lucide-react";
+import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react";
 import { motion, MotionConfig, type Variants } from "motion/react";
 import Dock from "@/components/dock";
 import Education from "@/components/education";
@@ -11,7 +11,6 @@ import Projects from "@/components/project";
 import TechStack from "@/components/tech-stack";
 import SocialCard from "@/components/social";
 import Reveal from "@/components/reveal";
-import { Card, CardContent } from "@/components/ui/card";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import {
   EASE_IN_OUT,
@@ -68,12 +67,12 @@ export default function Home() {
 
   const socialItems = [
     {
-      icon: <i className="devicon-linkedin-plain" />,
+      icon: <LinkedinLogo className="size-4 sm:size-5" />,
       name: "Linkedin",
       link: "https://www.linkedin.com/in/coco-lucas/",
     },
     {
-      icon: <Instagram className="size-4 sm:size-5" />,
+      icon: <InstagramLogo className="size-4 sm:size-5" />,
       name: "Instagram",
       link: "https://www.instagram.com/lucas.coco_/",
     },
@@ -143,7 +142,7 @@ export default function Home() {
                     width={144}
                     height={144}
                     priority
-                    className="rounded-full w-24 h-24 md:w-36 md:h-36 object-cover"
+                    className="rounded-lg w-24 h-24 md:w-36 md:h-36 object-cover"
                   />
                 </motion.div>
               </div>
@@ -171,7 +170,7 @@ export default function Home() {
                 className="flex flex-col justify-center items-center gap-5"
               >
                 <div className="flex flex-row items-center justify-center sm:w-fit">
-                  <Github size={30} />
+                  <GithubLogo size={30} />
                   <div className="flex flex-col justify-between h-full sm:ml-2 font-semibold text-center">
                     <p>GitHub</p>
                     <a
@@ -199,14 +198,12 @@ export default function Home() {
                 <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">
                   {t("contact.subtext")}?
                 </h2>
-                <p className="mt-1 font-bold text-2xl sm:text-3xl">
+                <p className="mt-1 font-garamond font-bold text-2xl sm:text-3xl">
                   {t("contact.title")}!
                 </p>
-                <Card className="sm:min-w-20 sm:w-150 mt-4">
-                  <CardContent className="flex flex-col items-center gap-2">
-                    <SocialCard items={socialItems} />
-                  </CardContent>
-                </Card>
+                <div className="mt-4 flex w-full flex-col items-center gap-2 sm:w-150">
+                  <SocialCard items={socialItems} />
+                </div>
               </Reveal>
             </main>
             <footer className="text-sm text-muted-foreground border-t border-muted py-4 mb-15 sm:mb-5">

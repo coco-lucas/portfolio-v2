@@ -7,11 +7,11 @@ import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import {
-  AlertCircle,
-  CloudAlert,
-  Loader2Icon,
-  OctagonAlert,
-} from "lucide-react";
+  WarningCircle,
+  CloudSlash,
+  CircleNotch,
+  WarningOctagon,
+} from "@phosphor-icons/react";
 
 import {
   Form,
@@ -283,14 +283,14 @@ export default function ContactForm({
         </div>
         {err && !isDisabled && (
           <div className="flex flex-row gap-1 text-destructive text-xs sm:text-sm text-center justify-center">
-            <OctagonAlert className="size-4 sm:size-5" />
+            <WarningOctagon className="size-4 sm:size-5" />
             <p>{t("contact.form.errors.send")}.</p>
           </div>
         )}
         {errorCount >= errorLimit && (
           <div className="flex flex-col items-center text-destructive text-sm text-center justify-center">
             <div className="flex flex-row gap-1">
-              <CloudAlert className="size-5" />
+              <CloudSlash className="size-5" />
               <p className="font-semibold">
                 {t("contact.form.errors.server.title")}.
               </p>
@@ -307,7 +307,7 @@ export default function ContactForm({
         {getTotalSubmissionCount() >= submissionLimit && (
           <div className="flex flex-col items-center text-sm text-center justify-center">
             <div className="flex flex-row gap-1">
-              <AlertCircle className="size-5" />
+              <WarningCircle className="size-5" />
               <p className="font-semibold">
                 {t("contact.form.errors.limit.title")}.
               </p>
@@ -338,7 +338,7 @@ export default function ContactForm({
           variant="secondary"
         >
           {isLoading ? (
-            <Loader2Icon className="motion-rotate-loop-[1turn]/reset motion-ease-linear" />
+            <CircleNotch className="motion-rotate-loop-[1turn]/reset motion-ease-linear" />
           ) : (
             t("contact.form.submit.button")
           )}

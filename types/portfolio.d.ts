@@ -30,11 +30,18 @@ export type IBadge =
 
 export type ITechType = "front" | "back" | "db" | "tools";
 
+export type ITechIcon = {
+  label: string;
+  icon: ReactNode;
+  /** brand mark is near-black — invert it in dark mode */
+  invertOnDark?: boolean;
+};
+
 export type ITechStack = {
   type: ITechType;
   icon: ReactNode;
   stackName: string;
-  techIcons: string[];
+  techIcons: ITechIcon[];
 };
 
 export interface ProjectCarouselProps {

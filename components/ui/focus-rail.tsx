@@ -6,22 +6,25 @@ import {
   AnimatePresence,
   type PanInfo,
   type Transition,
+  type Variants,
 } from "motion/react";
 import {
   Calendar,
-  ChevronLeft,
-  ChevronRight,
-  ChevronDown,
-  ChevronUp,
+  CaretLeft,
+  CaretRight,
+  CaretDown,
+  CaretUp,
   ArrowUpRight,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import Link from "next/link";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getLanguageColor } from "@/utils/language-colors";
+import { EASE_OUT } from "@/lib/animations";
 import type { IBadge } from "@/types/portfolio";
 
 export type FocusRailItem = {
@@ -77,6 +80,21 @@ const TAP_SPRING: Transition = {
   mass: 1,
 };
 
+// Badges trail in after the title, sweeping left → right
+const badgeRow: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.25 } },
+};
+
+const badgeIn: Variants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.4, ease: EASE_OUT },
+  },
+};
+
 function RailDescription({
   text,
   seeMore,
@@ -91,19 +109,19 @@ function RailDescription({
   const isTooLong = text.length > maxCharacters;
 
   return (
-    <p className="text-neutral-400">
+    <p className="text-muted-foreground">
       {isTooLong && !expanded ? text.substring(0, maxCharacters) + "..." : text}
       {isTooLong && (
         <button
           type="button"
           onClick={() => setExpanded((e) => !e)}
-          className="ml-1 inline-flex items-center gap-0.5 align-baseline text-sm font-medium text-white/80 underline transition-colors hover:text-white cursor-pointer"
+          className="ml-1 inline-flex items-center gap-0.5 align-baseline text-sm font-medium text-foreground/80 underline transition-colors hover:text-foreground cursor-pointer"
         >
           {expanded ? seeLess : seeMore}
           {expanded ? (
-            <ChevronUp className="size-4 mt-0.5" />
+            <CaretUp className="size-4 mt-0.5" />
           ) : (
-            <ChevronDown className="size-4 mt-0.5" />
+            <CaretDown className="size-4 mt-0.5" />
           )}
         </button>
       )}
@@ -123,6 +141,9 @@ export function FocusRail({
   seeLessLabel = "See less",
 }: FocusRailProps) {
   const [active, setActive] = React.useState(initialIndex);
+  const { resolvedTheme } = useTheme();
+  // heavy dimming looks muddy over a light background
+  const sideDim = resolvedTheme === "light" ? 0.92 : 0.5;
   const [isHovering, setIsHovering] = React.useState(false);
   const lastWheelTime = React.useRef<number>(0);
   // Blocks the zoom from opening on the click browsers fire after a swipe
@@ -208,7 +229,7 @@ export function FocusRail({
   return (
     <div
       className={cn(
-        "group relative flex min-h-[600px] w-full flex-col overflow-hidden bg-neutral-950 text-white outline-none select-none overflow-x-hidden",
+        "group relative flex min-h-[600px] w-full flex-col overflow-hidden bg-background text-foreground outline-none select-none overflow-x-hidden",
         className,
       )}
       onMouseEnter={() => setIsHovering(true)}
@@ -234,7 +255,7 @@ export function FocusRail({
               alt=""
               className="h-full w-full object-cover blur-3xl saturate-200"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -243,7 +264,7 @@ export function FocusRail({
       <div className="relative z-10 flex flex-1 flex-col justify-center px-4 pb-8 md:px-8">
         {/* DRAGGABLE RAIL CONTAINER */}
         <motion.div
-          className="relative mx-auto flex h-[360px] w-full max-w-6xl items-center justify-center perspective-[1200px] cursor-grab active:cursor-grabbing"
+          className="rail-stage relative mx-auto flex h-[360px] w-full max-w-6xl items-center justify-center perspective-[1200px] cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.2}
@@ -270,15 +291,15 @@ export function FocusRail({
 
             const opacity = isCenter ? 1 : Math.max(0.1, 1 - dist * 0.5);
             const blur = isCenter ? 0 : dist * 6;
-            const brightness = isCenter ? 1 : 0.5;
+            const brightness = isCenter ? 1 : sideDim;
 
             return (
               <motion.div
                 key={absIndex}
                 className={cn(
                   // landscape aspect — project screenshots are PC captures
-                  "absolute aspect-[4/3] w-[320px] md:w-[460px] rounded-2xl border-t border-white/20 bg-neutral-900 shadow-2xl transition-shadow duration-300",
-                  isCenter ? "z-20 shadow-white/10" : "z-10",
+                  "absolute aspect-[4/3] w-[320px] md:w-[460px] rounded-lg border-t border-border dark:border-white/20 bg-card shadow-2xl transition-shadow duration-300",
+                  isCenter ? "rail-center z-20 shadow-black/15 dark:shadow-white/10" : "z-10",
                 )}
                 initial={false}
                 animate={{
@@ -301,6 +322,10 @@ export function FocusRail({
                 {isCenter ? (
                   <div
                     className="h-full w-full"
+                    // own snapshot so the zoomable image can't escape above the
+                    // theme GIF; the card's background paints the same
+                    // screenshot where the snapshot leaves a hole
+                    style={{ viewTransitionName: "rail-active-image" }}
                     onClickCapture={(e) => {
                       if (wasDragged.current) {
                         e.preventDefault();
@@ -313,7 +338,7 @@ export function FocusRail({
                       <img
                         src={item.imageSrc}
                         alt={item.title}
-                        className="h-full w-full rounded-2xl object-cover"
+                        className="h-full w-full rounded-lg object-cover"
                       />
                     </Zoom>
                   </div>
@@ -322,13 +347,13 @@ export function FocusRail({
                   <img
                     src={item.imageSrc}
                     alt={item.title}
-                    className="h-full w-full rounded-2xl object-cover pointer-events-none"
+                    className="h-full w-full rounded-lg object-cover pointer-events-none"
                   />
                 )}
 
                 {/* Lighting layers */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
-                <div className="absolute inset-0 rounded-2xl bg-black/10 pointer-events-none mix-blend-multiply" />
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 rounded-lg bg-black/10 pointer-events-none mix-blend-multiply" />
               </motion.div>
             );
           })}
@@ -345,7 +370,7 @@ export function FocusRail({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="flex items-center gap-1.5 text-xs text-neutral-400"
+                className="flex items-center gap-1.5 text-xs text-muted-foreground"
               >
                 {activeItem.meta && (
                   <span className="flex items-center gap-1">
@@ -356,7 +381,7 @@ export function FocusRail({
                 {activeItem.company && (
                   <>
                     <span>•</span>
-                    <span className="font-medium text-neutral-300">
+                    <span className="font-medium text-foreground/80">
                       {activeItem.company}
                     </span>
                   </>
@@ -365,46 +390,24 @@ export function FocusRail({
             </AnimatePresence>
 
             <div className="flex items-center gap-2">
-              {activeItem.href && (
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="h-8 rounded-full px-3 text-xs cursor-pointer"
-                >
-                  <Link
-                    href={activeItem.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {exploreLabel}
-                    <ArrowUpRight className="size-3.5" />
-                  </Link>
-                </Button>
-              )}
-              <div className="flex items-center gap-1">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={handlePrev}
-                  aria-label="Previous"
-                  className="size-8 rounded-full active:scale-90 cursor-pointer"
-                >
-                  <ChevronLeft className="size-4" />
-                </Button>
-                <span className="min-w-9 text-center text-xs font-mono text-neutral-400">
-                  {activeIndex + 1} / {count}
-                </span>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={handleNext}
-                  aria-label="Next"
-                  className="size-8 rounded-full active:scale-90 cursor-pointer"
-                >
-                  <ChevronRight className="size-4" />
-                </Button>
-              </div>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={handlePrev}
+                aria-label="Previous"
+                className="size-8 active:scale-90 cursor-pointer"
+              >
+                <CaretLeft className="size-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={handleNext}
+                aria-label="Next"
+                className="size-8 active:scale-90 cursor-pointer"
+              >
+                <CaretRight className="size-4" />
+              </Button>
             </div>
           </div>
 
@@ -419,24 +422,47 @@ export function FocusRail({
                 transition={{ duration: 0.3 }}
                 className="space-y-2"
               >
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-white">
-                  {activeItem.title}
-                </h2>
+                <div className="flex items-center justify-center gap-2 md:justify-start">
+                  <h2 className="font-garamond text-3xl font-bold tracking-tight md:text-4xl text-foreground">
+                    {activeItem.title}
+                  </h2>
+                  {activeItem.href && (
+                    <Link
+                      href={activeItem.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={exploreLabel}
+                      className="text-muted-foreground transition-[color,translate] duration-200 hover:-translate-y-0.5 hover:translate-x-0.5 hover:text-foreground"
+                    >
+                      <ArrowUpRight className="size-5" />
+                    </Link>
+                  )}
+                </div>
                 {activeItem.badges && activeItem.badges.length > 0 && (
-                  <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+                  <motion.div
+                    className="flex flex-wrap justify-center gap-2 md:justify-start"
+                    variants={badgeRow}
+                    initial="hidden"
+                    animate="visible"
+                  >
                     {activeItem.badges.map((badge) => (
-                      <Badge
+                      <motion.span
                         key={badge}
-                        variant="secondary"
-                        className={cn(
-                          getLanguageColor(badge as IBadge),
-                          "cursor-default",
-                        )}
+                        variants={badgeIn}
+                        className="inline-flex"
                       >
-                        {badge}
-                      </Badge>
+                        <Badge
+                          variant="secondary"
+                          className={cn(
+                            getLanguageColor(badge as IBadge),
+                            "cursor-default",
+                          )}
+                        >
+                          {badge}
+                        </Badge>
+                      </motion.span>
                     ))}
-                  </div>
+                  </motion.div>
                 )}
                 {activeItem.description && (
                   <RailDescription

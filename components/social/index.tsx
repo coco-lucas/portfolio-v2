@@ -1,7 +1,7 @@
 "use client";
 
 import type { JSX } from "react";
-import { Mail } from "lucide-react";
+import { Envelope } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,10 +25,10 @@ export default function SocialCard({ items }: SocialCardProps) {
       <Dialog>
         <DialogTrigger asChild>
           <Button
-            variant="secondary"
+            variant="outline"
             className="items-center w-full text-lg sm:text-xl h-10 sm:h-12 mb-1 sm:mb-2 justify-center rounded-md cursor-pointer"
           >
-            <Mail className="size-6" /> {t("contact.button")}
+            <Envelope className="size-6" /> {t("contact.button")}
           </Button>
         </DialogTrigger>
         <DialogContent>
@@ -51,7 +51,7 @@ export default function SocialCard({ items }: SocialCardProps) {
           >
             <Button
               className="items-center text-sm sm:text-base w-full sm:min-w-45 h-8 sm:h-10 rounded-sm cursor-pointer"
-              variant="secondary"
+              variant="outline"
             >
               {item.icon}
               {item.name}

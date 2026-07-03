@@ -22,7 +22,7 @@ export default function Projects() {
     <FocusRail
       items={items}
       loop
-      className="rounded-2xl"
+      className="rounded-lg"
       exploreLabel={t("project.explore")}
       seeMoreLabel={t("project.see-more")}
       seeLessLabel={t("project.see-less")}

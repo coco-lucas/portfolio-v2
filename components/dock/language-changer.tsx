@@ -2,7 +2,7 @@
 
 import { useTransition } from "react";
 import { useLocale } from "next-intl";
-import { Languages } from "lucide-react";
+import { Translate } from "@phosphor-icons/react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -34,8 +34,13 @@ export default function LanguageChanger() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" value={currentLocale}>
-          <Languages />
+        <Button
+          variant="ghost"
+          size="icon"
+          value={currentLocale}
+          className="hover:bg-transparent dark:hover:bg-transparent aria-expanded:bg-transparent"
+        >
+          <Translate />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-24">

@@ -2,10 +2,10 @@
 
 import {
   BookOpenText,
-  FolderCode,
-  MailOpenIcon,
-  UserCircle2,
-} from "lucide-react";
+  FolderOpen,
+  EnvelopeOpen,
+  UserCircle,
+} from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { motion, type Variants } from "motion/react";
 import { ThemeToggle } from "./theme-toggle";
@@ -52,13 +52,13 @@ export default function Dock() {
   const dockItems = [
     {
       type: "nav",
-      icon: <UserCircle2 />,
+      icon: <UserCircle />,
       key: "about-me",
       hover: t("dock.about-me"),
     },
     {
       type: "nav",
-      icon: <FolderCode />,
+      icon: <FolderOpen />,
       key: "projects",
       hover: t("dock.projects"),
     },
@@ -70,7 +70,7 @@ export default function Dock() {
     },
     {
       type: "nav",
-      icon: <MailOpenIcon />,
+      icon: <EnvelopeOpen />,
       key: "contact",
       hover: t("dock.contact"),
     },
@@ -122,7 +122,7 @@ export default function Dock() {
 
   return (
     <motion.div
-      className="fixed bottom-3 left-1/2 transform -translate-x-1/2 backdrop-blur-md border border-solid border-(--border) p-3 sm:px-6 py-2 rounded-full"
+      className="fixed bottom-3 left-1/2 z-50 transform -translate-x-1/2 backdrop-blur-md border border-solid border-(--border) p-3 sm:px-6 py-2 rounded-full"
       variants={dockContainer}
       initial="hidden"
       animate="visible"

@@ -45,7 +45,8 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  /* squared, editorial look — bump this to re-round the whole app */
+  --radius: 0.125rem;
   --background: oklch(1 0 0);
   --foreground-light: oklch(0.145 0 0);
   --foreground-dark: oklch(0.985 0 0);
@@ -160,6 +161,7 @@
   }
   h3 {
     @apply text-2xl sm:text-3xl font-semibold text-start my-5 tracking-tight;
+    font-family: var(--font-eb-garamond);
   }
   h4 {
     @apply font-semibold tracking-tight;
@@ -198,15 +200,15 @@
 }
 
 ::view-transition-new(root) {
-  mask: url("https://media.tenor.com/aXnPle24WHUAAAAi/cat-dance.gif")
+  mask: url("https://media.tenor.com/Q56_az0mi08AAAAj/polish-cow-transparent.gif")
     center / 0 no-repeat;
-  animation: scale 1.5s;
+  animation: scale 2.5s;
   animation-fill-mode: both;
 }
 
 ::view-transition-old(root),
 .dark::view-transition-old(root) {
-  animation: scale 1.5s;
+  animation: scale 2.5s;
   animation-fill-mode: both;
 }
 
@@ -217,12 +219,31 @@
   10% {
     mask-size: 25vmax;
   }
-  90% {
+  60% {
     mask-size: 25vmax;
   }
   100% {
     mask-size: 2000vmax;
   }
+}
+
+/* Chromium quirk: content in a 3D rendering context (the project rail's
+   preserve-3d cards) escapes the view-transition overlay and paints above
+   the GIF. Flatten the rail only while a transition is running. The side
+   cards' blur/brightness filters already force flattening; the center card's
+   filter is a no-op, so its identity transform (translateZ(0)) is zeroed —
+   pixel-identical, but back inside the snapshot. */
+:root:active-view-transition .rail-stage {
+  perspective: none !important;
+}
+:root:active-view-transition .rail-stage > * {
+  transform-style: flat !important;
+}
+/* The active image is lifted into its own snapshot group, kept BELOW the
+   root group: during theme transitions its area shows the card face (gray),
+   which flips with the theme — so the GIF reveal reads on top of it. */
+::view-transition-group(rail-active-image) {
+  z-index: -1;
 }
 
 /* macOS-style dock magnification: hovered icon grows from the dock baseline,

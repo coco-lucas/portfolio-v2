@@ -6,13 +6,13 @@ import {
 
 // Website base SEO config
 export const websiteConfig = {
-  name: "Website Name",
-  description: "Website description",
+  name: "Lucas Coco",
+  description: "My portfolio, showcasing my work and skills.",
   url: "https://lucascoco.com",
   type: "website" as OpenGraphType,
-  locale: "pt_BR",
-  ogImage: "https://boilerplate-next.example.com/jpg",
-  authors: [{ name: "Website team" }],
+  locale: "en_US",
+  ogImage: "https://lucascoco.com/og-image.png",
+  authors: [{ name: "Lucas Coco" }],
   creator: "Lucas Coco",
   publisher: "Lucas Coco",
 };
@@ -44,14 +44,14 @@ export const defaultMetadata: Metadata = {
     type: websiteConfig.type,
     locale: websiteConfig.locale,
     url: websiteConfig.url,
-    title: websiteConfig.name,
+    title: `${websiteConfig.name} - Portfolio`,
     description: websiteConfig.description,
     siteName: websiteConfig.name,
     images: imageInfo(),
   },
   twitter: {
     card: "summary_large_image",
-    title: websiteConfig.name,
+    title: `${websiteConfig.name} - Portfolio`,
     description: websiteConfig.description,
     images: [websiteConfig.ogImage],
     creator: websiteConfig.creator,

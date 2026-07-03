@@ -1,0 +1,123 @@
+{
+  "about-me": "I'm a {age}-year-old FullStack Developer with 1+ year of hands-on experience in high-complexity projects, building web applications with AI as part of the workflow. I work independently, with strong attention to detail, translating business rules into clean, scalable and maintainable code, and modernizing legacy systems up to production level. Proven experience with critical web applications, sensitive integrations, precise validations and fast delivery. Advanced knowledge of TypeScript, React, Next.js, Node.js, NestJS, PostgreSQL, Docker, CI/CD and AWS, with a focus on testing, validating and refining AI-generated solutions.",
+  "contact": {
+    "title": "Contact me",
+    "subtext": "Have a project idea or are interested in my services",
+    "social": "Or connect with me on",
+    "button": "Email me",
+    "form": {
+      "title": "Write your message",
+      "desc": "Fill out the form below to get in touch with me",
+      "name": "Name",
+      "name-placeholder": "Your name",
+      "email": "E-mail",
+      "email-placeholder": "Your best e-mail",
+      "subject": "Subject",
+      "subject-placeholder": "Select a subject",
+      "subject-options": {
+        "project": "Project Collaboration",
+        "job": "Job Role",
+        "inquiry": "General Inquiry",
+        "other": "Other"
+      },
+      "custom": {
+        "label": "Custom Subject",
+        "placeholder": "Specify custom subject"
+      },
+      "message": "Message",
+      "message-placeholder": "Write your message here",
+      "submit": {
+        "button": "Send Message",
+        "loading": "Sending...",
+        "success": "Message Sent Successfully",
+        "thanks": "Thank you for reaching out! I'll get back to you as soon as possible",
+        "count": "You have submitted {count} e-mail(s) so far."
+      },
+      "errors": {
+        "input": {
+          "name": {
+            "required": "Name is required",
+            "min-length": "Name must be at least 2 characters long"
+          },
+          "email": {
+            "required": "E-mail is required",
+            "invalid": "Invalid e-mail format"
+          },
+          "subject": {
+            "required": "Subject is required"
+          },
+          "message": {
+            "required": "Message is required",
+            "min-length": "Message must be at least 10 characters long"
+          }
+        },
+        "send": "Error sending e-mail. Please, try again later",
+        "server": {
+          "title": "Error connecting to the server",
+          "desc": "Please, refresh the page and try again",
+          "contact": "If you need to reach me, contact me at"
+        },
+        "limit": {
+          "title": "Submission limit reached",
+          "desc": "You have reached the maximum number of e-mails submissions allowed",
+          "contact": "Please contact me directly at"
+        }
+      }
+    }
+  },
+  "education": {
+    "certificate": {
+      "title": "Certifications",
+      "1": "Full Stack Developer Residency in ICT/Software",
+      "2": "Beginner Training in Programming",
+      "3": "English Certificate (C1 Advanced)",
+      "credential": "View credential"
+    },
+    "graduation": {
+      "title": "Formal Education",
+      "year": "Graduation",
+      "1": "Bachelor's Degree in Computer Science"
+    }
+  },
+  "project": {
+    "title": "Projects",
+    "stack": "Used stack",
+    "status": {
+      "finished": "Finished",
+      "on-going": "On going"
+    },
+    "see-more": "See more",
+    "see-less": "See less",
+    "view-more": "Load more projects",
+    "view-less": "View less projects",
+    "tere-verde": {
+      "description": "Terê Verde is a website developed to highlight the natural attractions and ecotourism opportunities in Teresópolis - RJ. Unlike the city’s official platform, which suffers from poor design, slow navigation, and a lack of accessibility, our solution offers a clean, responsive interface with intuitive filters and fast performance, making it easy for any visitor to explore the region’s biodiversity with just a few clicks."
+    },
+    "orange-hub": {
+      "description": "Our challenge was to build a website to showcase the Orange's Experience HUB in Petrópolis - RJ. The platform allows users to schedule visits, explore materials about the HUB, learn more about Orange’s products and even generate a personalized report highlighting the services that caught their attention, helping Orange follow up with targeted and relevant information."
+    },
+    "mock": {
+      "description": "Brief description of the project goes here."
+    },
+    "saq-digital": {
+      "description": "Complete financial backoffice for a B2B payment infrastructure platform, built from scratch in under 3 months in a two-person team, replacing the legacy system — supporting 10M+ PIX transactions/day, R$1B+ monthly and clients in 3+ countries, with Next.js, TypeScript, Zustand and React Query. I integrated 50+ endpoints from the company's ecosystem with strong end-to-end typing, granular role-based access control, custom tokenized pagination and dashboards with tables and charts, centralizing operations previously scattered across the legacy system."
+    },
+    "goatcom": {
+      "description": "Complete e-commerce management platform similar to Shopify, with 10+ stores in production and R$50K+ transacted. I worked across all micro-frontends (Angular and Next.js) and contributed to the development of 17+ integrations covering advertising, ERP, marketing, payments, pixels, invoicing, shipping and notifications, delivering 360° visibility of operations for digital marketing professionals."
+    },
+    "avaliacao-socioeconomica": {
+      "description": "Socioeconomic assessment system built for the best private university in Brazil. I single-handedly took over a project that had been stalled for 6 months and delivered it to production in under 2 months, with Next.js and Express.js, serving all enrolled students and 25+ coordinators and assistants. I modernized a mostly manual process by centralizing and automating the entire business logic, and refactored the validations with a global Zod schema shared between front-end and back-end, eliminating inconsistencies between layers."
+    }
+  },
+  "stack": "Tech stack",
+  "stack_back": "Back-end Development",
+  "stack_db": "Databases",
+  "stack_front": "Front-end Development",
+  "stack_tools": "Tools",
+  "dock": {
+    "about-me": "About Me",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  }
+}

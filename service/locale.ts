@@ -11,7 +11,6 @@ export async function getUserLocale() {
   return (await cookies()).get(COOKIE_NAME)?.value || defaultLocale;
 }
 
-//TODO: Use this in the component that will handle i18n
 export async function setUserLocale(locale: Locale) {
   (await cookies()).set(COOKIE_NAME, locale);
 }

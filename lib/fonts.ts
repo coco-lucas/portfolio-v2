@@ -1,4 +1,15 @@
-import { Geist, Geist_Mono, Inter, Nunito_Sans } from "next/font/google";
+import {
+  EB_Garamond,
+  Geist,
+  Geist_Mono,
+  Inter,
+  Nunito_Sans,
+} from "next/font/google";
+
+const ebGaramond = EB_Garamond({
+  variable: "--font-eb-garamond",
+  subsets: ["latin"],
+});
 
 const nunitoSans = Nunito_Sans({ variable: "--font-sans" });
 
@@ -19,6 +30,7 @@ const inter = Inter({
 });
 
 export const fontsVariables = [
+  ebGaramond.variable,
   nunitoSans.variable,
   geistSans.variable,
   geistMono.variable,

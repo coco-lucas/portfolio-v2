@@ -1,0 +1,123 @@
+{
+  "about-me": "Soy un desarrollador FullStack de {age} años, con 1+ año de experiencia práctica en proyectos de alta complejidad, desarrollando aplicaciones web utilizando IA como parte del flujo de trabajo. Trabajo de forma independiente, con gran atención al detalle, traduciendo reglas de negocio en código limpio, escalable y mantenible, y modernizando sistemas legados hasta nivel de producción. Experiencia comprobada en el desarrollo de aplicaciones web críticas, integraciones sensibles, validaciones precisas y rapidez de entrega. Conocimiento avanzado de TypeScript, React, Next.js, Node.js, NestJS, PostgreSQL, Docker, CI/CD y AWS, con enfoque en pruebas, validación y refinamiento de soluciones generadas con IA.",
+  "contact": {
+    "title": "Contáctame",
+    "subtext": "¿Tienes una idea de proyecto o estás interesado en mis servicios?",
+    "social": "O conéctate conmigo en",
+    "button": "Envíame un correo",
+    "form": {
+      "title": "Escribe tu mensaje",
+      "desc": "Rellena el formulario abajo para ponerte en contacto conmigo",
+      "name": "Nombre",
+      "name-placeholder": "Tu nombre",
+      "email": "Correo electrónico",
+      "email-placeholder": "Tu mejor correo",
+      "subject": "Asunto",
+      "subject-placeholder": "Selecciona un asunto",
+      "subject-options": {
+        "project": "Colaboración en Proyecto",
+        "job": "Puesto de Trabajo",
+        "inquiry": "Consulta General",
+        "other": "Otro"
+      },
+      "custom": {
+        "label": "Asunto Personalizado",
+        "placeholder": "Especifica el asunto"
+      },
+      "message": "Mensaje",
+      "message-placeholder": "Escribe tu mensaje aquí",
+      "submit": {
+        "button": "Enviar Mensaje",
+        "loading": "Enviando...",
+        "success": "Mensaje enviado con éxito",
+        "thanks": "¡Gracias por tu mensaje! Me pondré en contacto contigo lo antes posible",
+        "count": "Has enviado {count} e-mail(s) hasta el momento."
+      },
+      "errors": {
+        "input": {
+          "name": {
+            "required": "El nombre es obligatorio",
+            "min-length": "El nombre debe tener al menos 2 caracteres"
+          },
+          "email": {
+            "required": "El correo electrónico es obligatorio",
+            "invalid": "Formato de correo inválido"
+          },
+          "subject": {
+            "required": "El asunto es obligatorio"
+          },
+          "message": {
+            "required": "El mensaje es obligatorio",
+            "min-length": "El mensaje debe tener al menos 10 caracteres"
+          }
+        },
+        "send": "Error al enviar el correo. Por favor, inténtalo más tarde",
+        "server": {
+          "title": "Error al conectar con el servidor",
+          "desc": "Recarga la página e inténtalo de nuevo",
+          "contact": "Si necesitas contactarme, escribe a"
+        },
+        "limit": {
+          "title": "Límite de envíos alcanzado",
+          "desc": "Has alcanzado el número máximo de envíos permitidos",
+          "contact": "Por favor, contáctame directamente en"
+        }
+      }
+    }
+  },
+  "education": {
+    "certificate": {
+      "title": "Certificaciones",
+      "1": "Residencia en Desarrollo Full Stack en TIC/Software",
+      "2": "Formación Inicial en Programación",
+      "3": "Certificado de Inglés (C1 Avanzado)",
+      "credential": "Ver credencial"
+    },
+    "graduation": {
+      "title": "Formación Académica",
+      "year": "Graduación",
+      "1": "Licenciatura en Ciencias de la Computación"
+    }
+  },
+  "project": {
+    "title": "Proyectos",
+    "stack": "Tecnologías utilizadas",
+    "status": {
+      "finished": "Finalizado",
+      "on-going": "En progreso"
+    },
+    "see-more": "Ver más",
+    "see-less": "Ver menos",
+    "view-more": "Cargar más proyectos",
+    "view-less": "Ver menos proyectos",
+    "tere-verde": {
+      "description": "Terê Verde es un sitio web desarrollado para destacar las atracciones naturales y las oportunidades de ecoturismo en Teresópolis - RJ. A diferencia de la plataforma oficial de la ciudad, que sufre de mal diseño, navegación lenta y falta de accesibilidad, nuestra solución ofrece una interfaz limpia y responsiva, con filtros intuitivos y alto rendimiento, lo que facilita que cualquier visitante explore la biodiversidad de la región con solo unos clics."
+    },
+    "orange-hub": {
+      "description": "Nuestro reto fue desarrollar un sitio web para mostrar el HUB de Experiencia de Orange en Petrópolis - RJ. La plataforma permite a los usuarios agendar visitas, explorar materiales sobre el HUB, conocer más sobre los productos de Orange e incluso generar un informe personalizado destacando los servicios que les llamaron la atención, ayudando así a Orange a hacer un seguimiento con información específica y relevante."
+    },
+    "mock": {
+      "description": "Breve descripción del proyecto va aquí."
+    },
+    "saq-digital": {
+      "description": "Backoffice financiero completo para una plataforma B2B de infraestructura de pagos, construido desde cero en menos de 3 meses, en equipo de dos, reemplazando el sistema legado — soportando más de 10 millones de transacciones PIX al día, R$1B+ mensuales y clientes en 3+ países, con Next.js, TypeScript, Zustand y React Query. Integré más de 50 endpoints del ecosistema de la empresa, con tipado fuerte de extremo a extremo, control de acceso granular por roles, paginación tokenizada personalizada y dashboards con tablas y gráficos, centralizando operaciones antes dispersas en el sistema legado."
+    },
+    "goatcom": {
+      "description": "Plataforma completa de gestión de e-commerce similar a Shopify, con más de 10 tiendas en producción y R$50K+ transaccionados. Trabajé en todos los micro-frontends (Angular y Next.js) y contribuí al desarrollo de más de 17 integraciones que cubren publicidad, ERP, marketing, pagos, píxeles, facturación, envíos y notificaciones, entregando visibilidad 360° de las operaciones para profesionales del marketing digital."
+    },
+    "avaliacao-socioeconomica": {
+      "description": "Sistema de evaluación socioeconómica desarrollado para la mejor universidad privada de Brasil. Asumí en solitario un proyecto estancado durante 6 meses y lo entregué en producción en menos de 2 meses, con Next.js y Express.js, atendiendo a todos los alumnos inscritos y a más de 25 coordinadores y asistentes. Modernicé un proceso mayormente manual, centralizando y automatizando toda la lógica de negocio, y refactoricé las validaciones con un schema global en Zod compartido entre front-end y back-end, eliminando inconsistencias entre capas."
+    }
+  },
+  "stack": "Tecnologías que utilizo",
+  "stack_back": "Desarrollo Back-end",
+  "stack_db": "Bases de datos",
+  "stack_front": "Desarrollo Front-end",
+  "stack_tools": "Herramientas",
+  "dock": {
+    "about-me": "Sobre Mí",
+    "projects": "Proyectos",
+    "education": "Formación",
+    "contact": "Contacto"
+  }
+}

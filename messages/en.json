@@ -97,14 +97,17 @@
       "description": "Brief description of the project goes here."
     },
     "saq-digital": {
-      "description": "Complete financial backoffice for a B2B payment infrastructure platform, built from scratch in under 3 months in a two-person team, replacing the legacy system — supporting 10M+ PIX transactions/day, R$1B+ monthly and clients in 3+ countries, with Next.js, TypeScript, Zustand and React Query. I integrated 50+ endpoints from the company's ecosystem with strong end-to-end typing, granular role-based access control, custom tokenized pagination and dashboards with tables and charts, centralizing operations previously scattered across the legacy system."
+      "description": "Complete financial backoffice for a B2B payment infrastructure platform, built from scratch in under 3 months in a two-person team, replacing the legacy system — supporting 10M+ PIX transactions/day, R$1B+ monthly and clients in 3+ countries, with Next.js, TypeScript, Zustand and React Query. I integrated 50+ endpoints from the company's ecosystem with strong end-to-end typing, granular role-based access control, custom tokenized pagination and dashboards with tables and charts, centralizing operations previously scattered across the legacy system.",
+      "title": "Financial Backoffice"
     },
     "goatcom": {
       "description": "Complete e-commerce management platform similar to Shopify, with 10+ stores in production and R$50K+ transacted. I worked across all micro-frontends (Angular and Next.js) and contributed to the development of 17+ integrations covering advertising, ERP, marketing, payments, pixels, invoicing, shipping and notifications, delivering 360° visibility of operations for digital marketing professionals."
     },
     "avaliacao-socioeconomica": {
-      "description": "Socioeconomic assessment system built for the best private university in Brazil. I single-handedly took over a project that had been stalled for 6 months and delivered it to production in under 2 months, with Next.js and Express.js, serving all enrolled students and 25+ coordinators and assistants. I modernized a mostly manual process by centralizing and automating the entire business logic, and refactored the validations with a global Zod schema shared between front-end and back-end, eliminating inconsistencies between layers."
-    }
+      "description": "Socioeconomic assessment system built for the best private university in Brazil. I single-handedly took over a project that had been stalled for 6 months and delivered it to production in under 2 months, with Next.js and Express.js, serving all enrolled students and 25+ coordinators and assistants. I modernized a mostly manual process by centralizing and automating the entire business logic, and refactored the validations with a global Zod schema shared between front-end and back-end, eliminating inconsistencies between layers.",
+      "title": "Socioeconomic Assessment"
+    },
+    "explore": "Explore"
   },
   "stack": "Tech stack",
   "stack_back": "Back-end Development",

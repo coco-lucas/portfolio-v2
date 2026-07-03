@@ -10,8 +10,10 @@ const orange = generalUrl + "orange/";
 
 export const PROJECTS_LIST: IProjectData[] = [
   {
-    title: "SaQ Digital",
+    title: "Financial Backoffice",
+    titleKey: "project.saq-digital.title",
     date: "10/2025",
+    company: "SAQ Digital",
     isFinished: true,
     images: [backoffice + "1.png"],
     descriptionKey: "project.saq-digital.description",
@@ -28,15 +30,18 @@ export const PROJECTS_LIST: IProjectData[] = [
   {
     // ponytail: no public URL — internal university system
     title: "Avaliação Socioeconômica",
+    titleKey: "project.avaliacao-socioeconomica.title",
     date: "02/2026",
+    company: "PUC Rio",
     isFinished: true,
     images: [aval + "1.png"],
     descriptionKey: "project.avaliacao-socioeconomica.description",
     badge: ["Next.js", "Express.js", "TypeScript", "Zod"],
   },
   {
-    title: "Goatcom",
+    title: "E-commerce 360",
     date: "11/2025",
+    company: "Goatcom",
     isFinished: true,
     images: [goatcom + "1.png"],
     descriptionKey: "project.goatcom.description",
@@ -53,6 +58,7 @@ export const PROJECTS_LIST: IProjectData[] = [
   {
     title: "The Orange Experience HUB Portal",
     date: "12/2024",
+    company: "Orange",
     isFinished: true,
     // services.jpeg kept its original name in S3 — rename to 2.jpeg to match the convention
     images: [orange + "1.jpeg", orange + "services.jpeg"],

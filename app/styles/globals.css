@@ -178,6 +178,13 @@
 .custom-zoom [data-rmiz-btn-unzoom] {
   @apply hidden;
 }
+/* Let the zoomable image fill the FocusRail card */
+[data-rmiz],
+[data-rmiz-content] {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 
 /* Theme-toggle view transition (theme-toggle.rdsx.dev): the new theme is
    revealed through a growing GIF mask. Triggered by document.startViewTransition

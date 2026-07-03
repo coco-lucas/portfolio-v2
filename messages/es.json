@@ -97,14 +97,17 @@
       "description": "Breve descripción del proyecto va aquí."
     },
     "saq-digital": {
-      "description": "Backoffice financiero completo para una plataforma B2B de infraestructura de pagos, construido desde cero en menos de 3 meses, en equipo de dos, reemplazando el sistema legado — soportando más de 10 millones de transacciones PIX al día, R$1B+ mensuales y clientes en 3+ países, con Next.js, TypeScript, Zustand y React Query. Integré más de 50 endpoints del ecosistema de la empresa, con tipado fuerte de extremo a extremo, control de acceso granular por roles, paginación tokenizada personalizada y dashboards con tablas y gráficos, centralizando operaciones antes dispersas en el sistema legado."
+      "description": "Backoffice financiero completo para una plataforma B2B de infraestructura de pagos, construido desde cero en menos de 3 meses, en equipo de dos, reemplazando el sistema legado — soportando más de 10 millones de transacciones PIX al día, R$1B+ mensuales y clientes en 3+ países, con Next.js, TypeScript, Zustand y React Query. Integré más de 50 endpoints del ecosistema de la empresa, con tipado fuerte de extremo a extremo, control de acceso granular por roles, paginación tokenizada personalizada y dashboards con tablas y gráficos, centralizando operaciones antes dispersas en el sistema legado.",
+      "title": "Backoffice Financiero"
     },
     "goatcom": {
       "description": "Plataforma completa de gestión de e-commerce similar a Shopify, con más de 10 tiendas en producción y R$50K+ transaccionados. Trabajé en todos los micro-frontends (Angular y Next.js) y contribuí al desarrollo de más de 17 integraciones que cubren publicidad, ERP, marketing, pagos, píxeles, facturación, envíos y notificaciones, entregando visibilidad 360° de las operaciones para profesionales del marketing digital."
     },
     "avaliacao-socioeconomica": {
-      "description": "Sistema de evaluación socioeconómica desarrollado para la mejor universidad privada de Brasil. Asumí en solitario un proyecto estancado durante 6 meses y lo entregué en producción en menos de 2 meses, con Next.js y Express.js, atendiendo a todos los alumnos inscritos y a más de 25 coordinadores y asistentes. Modernicé un proceso mayormente manual, centralizando y automatizando toda la lógica de negocio, y refactoricé las validaciones con un schema global en Zod compartido entre front-end y back-end, eliminando inconsistencias entre capas."
-    }
+      "description": "Sistema de evaluación socioeconómica desarrollado para la mejor universidad privada de Brasil. Asumí en solitario un proyecto estancado durante 6 meses y lo entregué en producción en menos de 2 meses, con Next.js y Express.js, atendiendo a todos los alumnos inscritos y a más de 25 coordinadores y asistentes. Modernicé un proceso mayormente manual, centralizando y automatizando toda la lógica de negocio, y refactoricé las validaciones con un schema global en Zod compartido entre front-end y back-end, eliminando inconsistencias entre capas.",
+      "title": "Evaluación Socioeconómica"
+    },
+    "explore": "Explorar"
   },
   "stack": "Tecnologías que utilizo",
   "stack_back": "Desarrollo Back-end",

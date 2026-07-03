@@ -46,6 +46,7 @@ export interface ProjectProps {
   isExpandedFromParent?: boolean;
   title: string;
   date?: string;
+  company?: string;
   isFinished: boolean;
   images: string[];
   description: string;
@@ -60,4 +61,6 @@ export type IProjectData = Omit<
   "isExpandedFromParent" | "description"
 > & {
   descriptionKey: string;
+  /** next-intl key — when set, overrides `title` for display */
+  titleKey?: string;
 };

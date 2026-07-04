@@ -380,7 +380,7 @@ export function FocusRail({
                 )}
                 {activeItem.company && (
                   <>
-                    <span>•</span>
+                    {activeItem.meta && <span>•</span>}
                     <span className="font-medium text-foreground/80">
                       {activeItem.company}
                     </span>

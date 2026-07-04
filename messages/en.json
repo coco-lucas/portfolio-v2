@@ -119,5 +119,19 @@
     "projects": "Projects",
     "education": "Education",
     "contact": "Contact"
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "noclaf": {
+      "role": "Fullstack Developer",
+      "period": "Aug. 2025 – Present",
+      "delivered": "8+ projects delivered",
+      "highlights": {
+        "1": "Financial backoffice (SAQ Digital)",
+        "2": "360° e-commerce platform (Goatcom)",
+        "3": "Socioeconomic assessment (PUC Rio)",
+        "4": "Legacy modernization & sensitive integrations"
+      }
+    }
   }
 }

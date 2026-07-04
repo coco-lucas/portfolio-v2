@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@phosphor-icons/react";
+import { ArrowUpRight, Link } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 
 type typeProps = "university" | "certification";
@@ -45,9 +45,10 @@ export default function EducationEntry({
           href={corporationURL}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           {corporation}
+          <ArrowUpRight className="size-3.5 transition-[translate] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </a>
         {credentialURL && (
           <a

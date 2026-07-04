@@ -32,9 +32,9 @@ export default function TechStack() {
           variants={fade("up")}
           className="flex flex-col gap-3 py-5 sm:flex-row sm:items-center sm:justify-between"
         >
-          <div className="flex items-center gap-2 text-muted-foreground">
+          <div className="flex shrink-0 items-center gap-2 text-muted-foreground">
             {stack.icon}
-            <span className="text-lg font-semibold tracking-tight text-foreground">
+            <span className="whitespace-nowrap text-lg font-semibold tracking-tight text-foreground">
               {t(stack.stackName)}
             </span>
           </div>

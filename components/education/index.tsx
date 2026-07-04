@@ -23,7 +23,7 @@ export default function Education() {
         />
       </Reveal>
 
-      <div className="flex flex-row sm:gap-1 items-center justify-start w-full">
+      <div className="mt-15 flex flex-row sm:gap-1 items-center justify-start w-full">
         <h3>{t("education.certificate.title")}</h3>
         <Certificate size={30} />
       </div>

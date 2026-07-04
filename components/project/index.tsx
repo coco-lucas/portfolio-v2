@@ -13,7 +13,6 @@ export default function Projects() {
     description: t(project.descriptionKey),
     imageSrc: project.images[0],
     href: project.deployURL ?? project.githubURL,
-    meta: project.date,
     company: project.company,
     badges: project.badge,
   }));

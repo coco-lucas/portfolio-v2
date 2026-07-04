@@ -7,6 +7,7 @@ import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react";
 import { motion, MotionConfig, type Variants } from "motion/react";
 import Dock from "@/components/dock";
 import Education from "@/components/education";
+import Experience from "@/components/experience";
 import Projects from "@/components/project";
 import TechStack from "@/components/tech-stack";
 import SocialCard from "@/components/social";
@@ -186,6 +187,10 @@ export default function Home() {
                 <Projects />
               </Reveal>
 
+              <div id="experience">
+                <Experience />
+              </div>
+
               <div id="education">
                 <Education />
               </div>
@@ -210,7 +215,7 @@ export default function Home() {
               <div className="flex flex-row justify-between items-center">
                 <Reveal
                   from="left"
-                  className="flex flex-row gap-2 text-foreground"
+                  className="flex flex-row gap-2 font-garamond text-foreground"
                 >
                   <p>Lucas Coco©</p>
                   <p>•</p>

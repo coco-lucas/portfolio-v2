@@ -1,13 +1,14 @@
-# Next.js Boilerplate
+# lucascoco.com
 
-Opinionated Next.js 16 + React 19 + Tailwind v4 + shadcn/ui starter. Clone, rename, swap the locale defaults, and ship.
+Personal portfolio — [lucascoco.com](https://lucascoco.com). Single-page, trilingual, animation-driven.
 
 ## Stack
 
 - Next.js 16 (App Router) · React 19 · TypeScript (strict)
-- Tailwind v4 · shadcn/ui (`radix-nova` style) · hugeicons
-- TanStack Query (server state) · Zustand (client state) · axios (HTTP)
-- next-intl (i18n) · next-themes (light/dark) · sonner (toasts)
+- Tailwind v4 · shadcn/ui primitives · Motion (Framer Motion) for animation
+- next-intl (en / pt / es, cookie-based) · next-themes (light/dark)
+- Phosphor icons (UI) · devicon + @dev.icons/react (tech stack) · EB Garamond (display font)
+- EmailJS (contact form) · Vercel Analytics + Google Analytics
 - Bun (package manager / runner)
 
 ## Getting started
@@ -20,133 +21,51 @@ bun run start
 bun run lint
 ```
 
-Set `NEXT_PUBLIC_API_URL` in `.env` to point at your backend.
-
-## Project structure
+`.env` (all public, client-side keys):
 
 ```
-app/
-  (public)/        # Unauthenticated pages
-  (private)/       # Authenticated pages
-  styles/          # globals.css (Tailwind tokens, CSS variables)
-  layout.tsx       # Root layout — providers, fonts, metadata
-components/
-  ui/              # shadcn primitives
-  table/           # Shared TanStack Table cells
-hooks/
-  use-mask.ts      # Generic UI hooks
-  use-pagination.ts
-  use-url-param.ts
-  service/         # TanStack Query wrappers (one file per API domain)
-i18n/              # next-intl locale + message loading
-lib/
-  metadata.ts      # createMetadata() factory + defaultMetadata
-  query-client.ts  # Shared QueryClient
-  utils.ts         # cn() class-merge helper
-  fonts.ts         # Font variable wiring
-service/
-  api.ts           # Single axios instance + auth interceptors
-  endpoints/       # API domains (auth.ts, ...)
-store/             # Zustand stores (use-auth.ts)
-types/             # All .d.ts type definitions
-utils/             # Pure helpers (toast, formatters, on-error, ...)
-proxy.ts           # Next 16 proxy (formerly middleware.ts)
+NEXT_PUBLIC_EMAILJS_CONTACT_EMAIL=...
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=...
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=...
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=...
+NEXT_PUBLIC_ASSETS_URL=https://<cloudfront-domain>/
 ```
 
-## Patterns to follow
+## Features
 
-### 1. Data fetching: endpoint → hook → component
+- **Intro sequence** — the name types itself center screen (EB Garamond + shimmer), then glides into the header via a shared-layout FLIP; the rest of the page mounts and staggers in only after it lands. Timeline knobs live in `lib/animations.ts`.
+- **Projects rail** (`components/ui/focus-rail.tsx`) — horizontal 3D carousel: drag/swipe, arrow keys, trackpad, click-to-focus. Zoomable screenshot, translated title/description with show-more, tech badges, date + company row. Theme-aware.
+- **Dock** — macOS-style magnification (pure CSS `:has()` siblings), anchor navigation with smooth scroll, language switcher, and a theme toggle that reveals the new theme through a growing GIF mask (View Transitions API).
+- **i18n** — en/pt/es via next-intl, cookie-based (no URL prefix). All copy in `messages/*.json`.
+- **SEO** — metadata factory (`lib/metadata.ts`), OG image, JSON-LD Person, sitemap, robots.
+- **Reduced motion** respected via `MotionConfig`.
 
-Every API call goes through three layers. Components never call axios directly.
+## Editing content
 
-**`types/posts.d.ts`** — entities and DTOs:
+| What | Where |
+|---|---|
+| Copy / translations | `messages/en.json`, `pt.json`, `es.json` |
+| Projects (title, dates, company, links, images) | `shared/mocks/projects.ts` |
+| Tech stack icons | `shared/mocks/tech-stack.tsx` (rendered through `components/tech-icon.tsx`) |
+| Education / certifications | `components/education/index.tsx` |
+| Social links | `app/home.tsx` (`socialItems`) |
+| Animation timing (stagger, intro, dock delay) | `lib/animations.ts` |
+| Design tokens (radius, colors, serif headings) | `app/styles/globals.css` |
 
-```ts
-export interface Post { id: string; title: string; body: string; }
-export interface CreatePostDTO { title: string; body: string; }
-export interface ListPostsParams { page?: number; }
+### Project screenshots
+
+Hosted on S3 + CloudFront under a numbered convention:
+
+```
+projects/<slug>/1.png   # first screenshot (2.png, ... to add more)
 ```
 
-**`service/endpoints/posts.ts`** — paths and request functions, kept separate:
+Add the URL to the project's `images` array in `shared/mocks/projects.ts`.
 
-```ts
-import { api } from "../api";
-import type { Post, CreatePostDTO, ListPostsParams } from "@/types/post";
+### Tech icons
 
-export const postsRoutes = {
-  list: "/posts",
-  byId: (id: string) => `/posts/${id}`,
-} as const;
+`<TechIcon name="..." />` resolves from the classic devicon font (`name="javascript-plain colored"`), from @dev.icons/react for icons devicon lacks (`name="claude-code"` — see the `DEV_ICONS` map in `components/tech-icon.tsx`), or renders a raw SVG via the `svg` prop.
 
-export const PostsApi = {
-  list: (params: ListPostsParams) => api.get<Post[]>(postsRoutes.list, { params }),
-  byId: (id: string) => api.get<Post>(postsRoutes.byId(id)),
-  create: (data: CreatePostDTO) => api.post<Post>(postsRoutes.list, data),
-};
-```
+## Boilerplate underneath
 
-**`hooks/service/use-posts.ts`** — TanStack Query wrapper:
-
-```ts
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { PostsApi } from "@/service/endpoints/posts";
-
-export const postsKeys = {
-  all: ["posts"] as const,
-  list: (params) => [...postsKeys.all, "list", params] as const,
-};
-
-export function usePosts(params) {
-  return useQuery({
-    queryKey: postsKeys.list(params),
-    queryFn: () => PostsApi.list(params).then((r) => r.data),
-  });
-}
-```
-
-**Component:** consumes the hook only.
-
-```tsx
-const { data: posts, isLoading } = usePosts({ page: 1 });
-```
-
-### 2. Types live in `types/`
-
-Every interface, type, and DTO goes in `types/<domain>.d.ts` — never inline next to a hook, endpoint, or component, even if only one file uses it today.
-
-### 3. Auth = axios interceptors + Zustand + cookie
-
-`service/api.ts` attaches Bearer tokens, harvests refreshed tokens from responses, and retries 401/403 once via the refresh endpoint. `store/use-auth.ts` persists tokens in `localStorage` and mirrors `{ isAuthenticated, sessionExpiry }` into a non-HttpOnly `auth-session` cookie that the proxy can read.
-
-Don't create new axios instances — extend the existing one. Don't read auth state directly from `localStorage`/cookies in components — go through `useAuthStore`.
-
-### 4. Theming via CSS variables
-
-`app/styles/globals.css` defines stable `--foreground-light` / `--foreground-dark` as the source of truth, and `--foreground` aliases one of them per theme. Use the stable handles for fixed-color surfaces (toast backgrounds, branded panels). Never duplicate raw `oklch(...)` values into new variables — alias them.
-
-Semantic colors `--success`, `--destructive`, `--warning` are defined per-theme. Toasts and similar use them for backgrounds and the stable foregrounds for text.
-
-### 5. URL-driven state
-
-Anything that should survive refresh or be shareable (filters, page, sort) goes through `useUrlParam(key)` or `usePagination()` — both write back via `router.replace` without scroll.
-
-## Conventions
-
-- **File names**: kebab-case (`use-pagination.ts`, `format-currency.ts`).
-- **Path alias**: `@/*` → repo root. Always import via `@/` — never `../../`.
-- **Hooks**: prefix `use-`. Generic UI in `hooks/`, data fetching in `hooks/service/`.
-- **className composition**: always use `cn()` from `@/lib/utils`.
-- **Toasts**: use `toastSuccess` / `toastError` / `toastWarning` / `toastPromise` from `@/utils/toast`.
-- **Metadata**: pages export `metadata` via `createMetadata({ title, description, path })` from `@/lib/metadata`.
-- **Locale defaults**: ships with `pt-BR` (BRL currency, CPF/CNPJ masks). Swap formatters in `utils/formatters/` and masks in `hooks/use-mask.ts` together when forking.
-
-## Adding a new API domain
-
-1. `types/<domain>.d.ts` — entities + DTOs.
-2. `service/endpoints/<domain>.ts` — `<domain>Routes` + `<Domain>Api`.
-3. `hooks/service/use-<domain>.ts` — `<domain>Keys` + query/mutation hooks.
-4. Component imports from step 3 only.
-
-## Further reading
-
-See [`CLAUDE.md`](./CLAUDE.md) for the full architectural guide (anti-patterns, utilities catalog, theming details).
+The repo started from a Next.js boilerplate that ships auth/data-fetching patterns (axios interceptors, TanStack Query, Zustand) that the portfolio doesn't use but keeps available — see [`CLAUDE.md`](./CLAUDE.md) for those conventions if you extend the site with API-backed features.

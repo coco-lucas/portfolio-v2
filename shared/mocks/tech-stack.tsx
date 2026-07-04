@@ -36,6 +36,7 @@ export const TECH_STACK: ITechStack[] = [
       { label: "NestJS", icon: <TechIcon name="nestjs-original colored" /> },
       { label: "Express.js", icon: <TechIcon name="express-original" /> },
       { label: "Django", icon: <TechIcon name="django-plain" /> },
+      { label: "FastAPI", icon: <TechIcon name="fastapi-plain colored" /> },
     ],
   },
   {

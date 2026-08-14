@@ -11,6 +11,9 @@ export default function Projects() {
     id: project.title,
     title: project.titleKey ? t(project.titleKey) : project.title,
     description: t(project.descriptionKey),
+    metrics: project.metricsKey
+      ? (t.raw(project.metricsKey) as string[])
+      : undefined,
     imageSrc: project.images[0],
     href: project.deployURL ?? project.githubURL,
     company: project.company,

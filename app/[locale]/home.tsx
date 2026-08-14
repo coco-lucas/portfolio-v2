@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react";
 import { motion, MotionConfig, type Variants } from "motion/react";
+import AI from "@/components/ai";
 import Dock from "@/components/dock";
 import Education from "@/components/education";
 import Experience from "@/components/experience";
@@ -17,6 +18,8 @@ import {
   EASE_IN_OUT,
   INTRO_BEAT,
   NAME_FLIP,
+  SHIMMER,
+  SHIMMER_CLASS,
   TYPE_STAGGER,
   fade,
   staggerContainer,
@@ -117,13 +120,7 @@ export default function Home() {
                       transition={{ duration: NAME_FLIP, ease: EASE_IN_OUT }}
                       className="font-garamond text-5xl sm:text-8xl font-bold tracking-tighter text-center sm:text-start -ml-1 sm:-ml-2"
                     >
-                      <TextShimmer
-                        as="span"
-                        duration={0.35}
-                        repeatDelay={3}
-                        spread={8}
-                        className="p-[0.15em] -m-[0.15em] [--base-color:var(--foreground)] [--base-gradient-color:#a1a1aa] dark:[--base-color:var(--foreground)] dark:[--base-gradient-color:#a1a1aa]"
-                      >
+                      <TextShimmer as="span" {...SHIMMER} className={SHIMMER_CLASS}>
                         {NAME}
                       </TextShimmer>
                     </motion.h1>
@@ -132,8 +129,7 @@ export default function Home() {
                     className="text-sm tracking-tighter text-center sm:text-start font-normal text-muted-foreground"
                     variants={fade("up")}
                   >
-                    🇧🇷 Full Stack Developer | Java | SpringBoot | JavaScript |
-                    TypeScript | React | Next.js
+                    {t("role-tagline")}
                   </motion.h2>
                 </div>
                 <motion.div variants={fade("down")}>
@@ -163,6 +159,7 @@ export default function Home() {
                 <h3 id="my-stack">{t("stack")}:</h3>
                 <TechStack />
               </Reveal>
+              <AI />
               <Reveal as="nav">
                 <h3 id="projects">{t("project.title")}:</h3>
               </Reveal>
@@ -200,12 +197,14 @@ export default function Home() {
                 id="contact"
                 className="flex flex-col items-center justify-center sm:mt-30 mb-10"
               >
-                <h2 className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium">
+                {/* The big garamond line is the heading; the question above it
+                    is supporting copy, so the tags follow the visual weight. */}
+                <p className="w-70 sm:w-fit text-xl sm:text-2xl text-center sm:text-start font-medium text-muted-foreground">
                   {t("contact.subtext")}?
-                </h2>
-                <p className="mt-1 font-garamond font-bold text-2xl sm:text-3xl">
-                  {t("contact.title")}!
                 </p>
+                <h3 className="mt-1 my-0 font-garamond font-bold text-2xl sm:text-3xl">
+                  {t("contact.title")}!
+                </h3>
                 <div className="mt-4 flex w-full flex-col items-center gap-2 sm:w-150">
                   <SocialCard items={socialItems} />
                 </div>

@@ -1,34 +1,10 @@
 import type { ReactNode } from "react";
 
-export type IBadge =
-  | "SSG"
-  | "SSR"
-  | "CSR"
-  | "Angular"
-  | "Next.js"
-  | "Node.js"
-  | "Express.js"
-  | "React"
-  | "TypeScript"
-  | "Tailwind"
-  | "Framer Motion"
-  | "Java"
-  | "SpringBoot"
-  | "JavaScript"
-  | "HTML"
-  | "CSS"
-  | "JSON-Server"
-  | "PostgreSQL"
-  | "MongoDB"
-  | "Docker"
-  | "Git"
-  | "RabbitMQ"
-  | "Tanstack Query"
-  | "React Hook Form"
-  | "Zod"
-  | "AWS";
+// Open on purpose: a new tech should cost one entry in the project mock,
+// not a union edit too. Unmapped badges just render without a hover color.
+export type IBadge = string;
 
-export type ITechType = "front" | "back" | "db" | "tools";
+export type ITechType = "front" | "back" | "db" | "obs" | "tools";
 
 export type ITechIcon = {
   label: string;
@@ -41,6 +17,8 @@ export type ITechStack = {
   type: ITechType;
   icon: ReactNode;
   stackName: string;
+  /** next-intl key — practices and tools that have no icon */
+  noteName: string;
   techIcons: ITechIcon[];
 };
 
@@ -70,4 +48,6 @@ export type IProjectData = Omit<
   descriptionKey: string;
   /** next-intl key — when set, overrides `title` for display */
   titleKey?: string;
+  /** next-intl key holding a string[] of headline numbers */
+  metricsKey?: string;
 };

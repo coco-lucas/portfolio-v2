@@ -11,7 +11,8 @@ interface EntryProps {
   corporationURL?: string;
   type: typeProps;
   hours?: string;
-  year: number;
+  /** a plain year, or a range like "2024 – 2028" */
+  year: number | string;
   credentialURL?: string;
 }
 

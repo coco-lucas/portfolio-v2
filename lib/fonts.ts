@@ -1,38 +1,15 @@
-import {
-  EB_Garamond,
-  Geist,
-  Geist_Mono,
-  Inter,
-  Nunito_Sans,
-} from "next/font/google";
+import { EB_Garamond, Nunito_Sans } from "next/font/google";
 
+// Two families only: Garamond for display (font-garamond), Nunito for body
+// (it owns --font-sans, so it is Tailwind's default sans).
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
   subsets: ["latin"],
 });
 
-const nunitoSans = Nunito_Sans({ variable: "--font-sans" });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nunitoSans = Nunito_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "700"],
-});
-
-export const fontsVariables = [
-  ebGaramond.variable,
-  nunitoSans.variable,
-  geistSans.variable,
-  geistMono.variable,
-  inter.variable,
-];
+export const fontsVariables = [ebGaramond.variable, nunitoSans.variable];

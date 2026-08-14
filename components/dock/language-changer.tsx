@@ -11,7 +11,7 @@ import {
   DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { setUserLocale } from "@/service/locale";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/config";
 
 const LANGUAGE_LABELS: Record<Locale, string> = {
@@ -22,12 +22,15 @@ const LANGUAGE_LABELS: Record<Locale, string> = {
 
 export default function LanguageChanger() {
   const currentLocale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [, startTransition] = useTransition();
 
   const handleChange = (lang: string) => {
     if (lang === currentLocale) return;
+    // pathname here is locale-free, so this swaps the prefix and keeps the page
     startTransition(() => {
-      setUserLocale(lang as Locale);
+      router.replace(pathname, { locale: lang as Locale });
     });
   };
 

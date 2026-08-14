@@ -1,5 +1,5 @@
 {
-  "about-me": "Sou um desenvolvedor FullStack de {age} anos, com 1+ ano de experiência prática em projetos de alta complexidade, desenvolvendo aplicações web utilizando IA como parte do fluxo. Trabalho de forma independente, com forte atenção a detalhes, traduzindo regras de negócio em código limpo, escalável e manutenível, e também modernizando sistemas legados, elevando-os a nível de produção. Experiência comprovada no desenvolvimento de aplicações web críticas, integrações sensíveis, validações precisas e velocidade de entrega. Conhecimento de nível avançado em TypeScript, React, Next.js, Node.js, NestJS, PostgreSQL, Docker, CI/CD e AWS, com foco em testes, validação e refinamento de soluções geradas com IA.",
+  "about-me": "Sou um desenvolvedor FullStack IA-first de {age} anos, com 2+ anos em plataformas web de alta complexidade, sistemas distribuídos e ambientes de alta disponibilidade. Tenho ownership de frontend, backend, integrações críticas e DevEx, com IA integrada ao fluxo de desenvolvimento de ponta a ponta — SDD (Spec-Driven Development), skills, rules, hooks e loops — e atuação em times ágeis (Scrum e Kanban). Experiência em produtos críticos de grande porte em produção — do setor financeiro ao e-commerce e à educação — além de ferramentas internas de desenvolvimento adotadas por toda a empresa.",
   "contact": {
     "title": "Entre em contato",
     "subtext": "Tem ulguma ideia de projeto ou se interessa por meus serviços",
@@ -67,16 +67,16 @@
   },
   "education": {
     "certificate": {
-      "title": "Certificações",
       "1": "Residência em Desenvolvimento Full Stack em TIC/Software",
       "2": "Treinamento Introdutório em Programação",
       "3": "Certificado de Inglês (C1 Avançado)",
+      "title": "Certificações",
       "credential": "Ver credencial"
     },
     "graduation": {
+      "1": "Bacharelado em Ciência da Computação",
       "title": "Formação Acadêmica",
-      "year": "Conclusão",
-      "1": "Bacharelado em Ciência da Computação"
+      "year": "Cursando"
     }
   },
   "project": {
@@ -93,25 +93,38 @@
     "orange-hub": {
       "description": "Nosso desafio foi construir um site para apresentar o HUB de Experiência da Orange em Petrópolis - RJ. A plataforma permite que os usuários agendem visitas, explorem materiais sobre o HUB, conheçam mais sobre os produtos da Orange e até gerem um relatório personalizado destacando os serviços que chamaram sua atenção, ajudando a Orange a realizar um acompanhamento com informações direcionadas e relevantes."
     },
-    "mock": {
-      "description": "Breve descrição do projeto vai aqui."
-    },
     "saq-digital": {
       "description": "Backoffice financeiro completo para uma plataforma B2B de infraestrutura de pagamentos, construído do zero em menos de 3 meses, em dupla, substituindo o sistema legado — suportando mais de 10 milhões de transações PIX por dia, R$1B+ mensais e clientes em 3+ países, com Next.js, TypeScript, Zustand e React Query. Integrei mais de 50 endpoints do ecossistema da empresa, com tipagem forte ponta a ponta, controle de acesso granular por roles, paginação tokenizada customizada e dashboards com tabelas e gráficos, centralizando operações antes dispersas no sistema legado.",
-      "title": "Backoffice Financeiro"
+      "title": "Backoffice Financeiro",
+      "metrics": [
+        "10M+ transações PIX/dia",
+        "R$1B+/mês",
+        "3+ países",
+        "50+ endpoints"
+      ]
     },
     "goatcom": {
-      "description": "Plataforma completa de gestão de e-commerce similar ao Shopify, com mais de 10 lojas em produção e R$50K+ transacionados. Atuei em todos os micro-frontends (Angular e Next.js) e contribuí no desenvolvimento de mais de 17 integrações cobrindo publicidade, ERP, marketing, pagamentos, pixels, emissão de notas, fretes e notificações, entregando visibilidade 360° das operações para profissionais de marketing digital."
+      "description": "Plataforma completa de gestão de e-commerce similar ao Shopify, com mais de 10 lojas em produção e R$50K+ transacionados. Atuei em todos os micro-frontends (Angular e Next.js) e contribuí no desenvolvimento de mais de 17 integrações cobrindo publicidade, ERP, marketing, pagamentos, pixels, emissão de notas, fretes e notificações, entregando visibilidade 360° das operações para profissionais de marketing digital.",
+      "metrics": [
+        "10+ lojas em produção",
+        "R$50K+ transacionados",
+        "17+ integrações"
+      ]
     },
     "avaliacao-socioeconomica": {
-      "description": "Sistema de avaliação socioeconômica desenvolvido para a melhor universidade privada do Brasil. Assumi sozinho um projeto estagnado há 6 meses e o entreguei em produção em menos de 2 meses, com Next.js e Express.js, atendendo todos os alunos inscritos e mais de 25 coordenadores e assistentes. Modernizei um processo majoritariamente manual, centralizando e automatizando toda a lógica de negócio, e refatorei as validações com um schema global em Zod compartilhado entre front-end e back-end, eliminando inconsistências entre camadas.",
-      "title": "Avaliação Socioeconômica"
+      "description": "Sistema de avaliação socioeconômica desenvolvido para a melhor universidade privada do Brasil. Assumi sozinho um projeto estagnado há 6 meses e o entreguei em produção em menos de 3 meses, com Next.js e Express.js, atendendo todos os alunos inscritos e mais de 25 coordenadores e assistentes. Modernizei um processo majoritariamente manual, centralizando e automatizando toda a lógica de negócio, e refatorei as validações com um schema global em Zod compartilhado entre front-end e back-end, eliminando inconsistências entre camadas.",
+      "title": "Avaliação Socioeconômica",
+      "metrics": [
+        "Parado 6 meses → produção em 3",
+        "Todos os alunos inscritos",
+        "25+ coordenadores"
+      ]
     },
     "explore": "Explorar"
   },
   "stack": "Tecnologias que utilizo",
   "stack_back": "Desenvolvimento Back-end",
-  "stack_db": "Bancos de dados",
+  "stack_db": "Dados",
   "stack_front": "Desenvolvimento Front-end",
   "stack_tools": "Ferramentas",
   "dock": {
@@ -126,12 +139,30 @@
       "role": "Desenvolvedor Fullstack",
       "period": "Ago. 2025 – Atual",
       "delivered": "8+ projetos entregues",
-      "highlights": {
-        "1": "Backoffice financeiro (SAQ Digital)",
-        "2": "Plataforma de e-commerce 360° (Goatcom)",
-        "3": "Avaliação socioeconômica (PUC Rio)",
-        "4": "Modernização de legados & integrações sensíveis"
-      }
+      "highlights": [
+        "CLI de desenvolvimento + MCP (20+ profissionais)",
+        "Backoffice financeiro (SAQ Digital)",
+        "Plataforma de e-commerce 360° (Goatcom)",
+        "Avaliação socioeconômica (PUC-Rio)",
+        "Modernização de legados & integrações sensíveis"
+      ],
+      "context": "Software house — múltiplos produtos críticos em paralelo, do financeiro ao e-commerce e à educação"
     }
-  }
+  },
+  "role-tagline": "🇧🇷 AI Product / Full Stack Engineer · TS/Python/Java · LLM Agents · MCP · SDD",
+  "ai": {
+    "title": "IA e Agentic Engineering",
+    "items": [
+      "CLI interno de desenvolvimento adotado por 20+ profissionais — skills, rules e agentes por setor e por etapa do desenvolvimento",
+      "Servidores MCP próprios integrados a sistemas internos e PostgreSQL, controlando tasks pelo CLI e por ferramentas como Claude e Codex",
+      "SDD (Spec-Driven Development) e documentação agêntica — specs geradas, mantidas e versionadas por IA",
+      "Controle de harness que lê a stack e as tecnologias de cada projeto — rules direcionadas à stack e validação por regra de negócio, além de prompt engineering"
+    ]
+  },
+  "stack_front_note": "Acessibilidade, responsividade, Mobile First e micro-frontends",
+  "stack_back_note": "Sistemas distribuídos, alta disponibilidade, microsserviços, REST, WebSockets, filas e serverless (AWS Lambda)",
+  "stack_db_note": "Modelagem relacional, migrations e ORMs tipados",
+  "stack_tools_note": "TDD com Jest · CI/CD · deploys serverless em AWS Lambda · Scrum e Kanban",
+  "stack_obs": "Observabilidade",
+  "stack_obs_note": "Tracing, métricas, dashboards e analytics de produto"
 }

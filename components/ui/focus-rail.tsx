@@ -25,7 +25,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getLanguageColor } from "@/utils/language-colors";
 import { EASE_OUT } from "@/lib/animations";
-import type { IBadge } from "@/types/portfolio";
 
 export type FocusRailItem = {
   id: string | number;
@@ -36,6 +35,8 @@ export type FocusRailItem = {
   meta?: string;
   company?: string;
   badges?: string[];
+  /** headline numbers, shown above the badges */
+  metrics?: string[];
 };
 
 interface FocusRailProps {
@@ -299,7 +300,9 @@ export function FocusRail({
                 className={cn(
                   // landscape aspect — project screenshots are PC captures
                   "absolute aspect-[4/3] w-[320px] md:w-[460px] rounded-lg border-t border-border dark:border-white/20 bg-card shadow-2xl transition-shadow duration-300",
-                  isCenter ? "rail-center z-20 shadow-black/15 dark:shadow-white/10" : "z-10",
+                  isCenter
+                    ? "rail-center z-20 shadow-black/15 dark:shadow-white/10"
+                    : "z-10",
                 )}
                 initial={false}
                 animate={{
@@ -423,9 +426,11 @@ export function FocusRail({
                 className="space-y-2"
               >
                 <div className="flex items-center justify-center gap-2 md:justify-start">
-                  <h2 className="font-garamond text-3xl font-bold tracking-tight md:text-4xl text-foreground">
+                  {/* h4, not h2: it lives under the section's h3, and sized so
+                      a card title never outranks the header above it. */}
+                  <h4 className="font-garamond text-2xl font-bold tracking-tight md:text-3xl text-foreground">
                     {activeItem.title}
-                  </h2>
+                  </h4>
                   {activeItem.href && (
                     <Link
                       href={activeItem.href}
@@ -438,6 +443,20 @@ export function FocusRail({
                     </Link>
                   )}
                 </div>
+                {/* Separator via ::before so a wrapped line never opens with
+                    a stray "·" — with 4 metrics it wraps on mobile. */}
+                {activeItem.metrics && activeItem.metrics.length > 0 && (
+                  <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-semibold text-chart-2 md:justify-start">
+                    {activeItem.metrics.map((metric) => (
+                      <span
+                        key={metric}
+                        className="before:mr-2 before:text-ring before:content-['·'] first:before:hidden"
+                      >
+                        {metric}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 {activeItem.badges && activeItem.badges.length > 0 && (
                   <motion.div
                     className="flex flex-wrap justify-center gap-2 md:justify-start"
@@ -454,7 +473,7 @@ export function FocusRail({
                         <Badge
                           variant="secondary"
                           className={cn(
-                            getLanguageColor(badge as IBadge),
+                            getLanguageColor(badge),
                             "cursor-default",
                           )}
                         >

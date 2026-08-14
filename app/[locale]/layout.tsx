@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
-import "devicon/devicon.min.css";
+import "../styles/devicon.css";
 import { buildDefaultMetadata, personJsonLd } from "@/lib/metadata";
 import { ReactNode } from "react";
 import Script from "next/script";

@@ -1,5 +1,5 @@
 {
-  "about-me": "I'm a {age}-year-old FullStack Developer with 1+ year of hands-on experience in high-complexity projects, building web applications with AI as part of the workflow. I work independently, with strong attention to detail, translating business rules into clean, scalable and maintainable code, and modernizing legacy systems up to production level. Proven experience with critical web applications, sensitive integrations, precise validations and fast delivery. Advanced knowledge of TypeScript, React, Next.js, Node.js, NestJS, PostgreSQL, Docker, CI/CD and AWS, with a focus on testing, validating and refining AI-generated solutions.",
+  "about-me": "I'm a {age}-year-old AI-first FullStack Developer with 2+ years in high-complexity web platforms, distributed systems and high-availability environments. I own frontend, backend, critical integrations and DevEx, with AI built into the development workflow end to end — SDD (Spec-Driven Development), skills, rules, hooks and loops — working in agile teams (Scrum and Kanban). Experience with large critical products in production — from finance to e-commerce and education — plus internal developer tooling adopted company-wide.",
   "contact": {
     "title": "Contact me",
     "subtext": "Have a project idea or are interested in my services",
@@ -67,16 +67,16 @@
   },
   "education": {
     "certificate": {
-      "title": "Certifications",
       "1": "Full Stack Developer Residency in ICT/Software",
       "2": "Beginner Training in Programming",
       "3": "English Certificate (C1 Advanced)",
+      "title": "Certifications",
       "credential": "View credential"
     },
     "graduation": {
+      "1": "Bachelor's Degree in Computer Science",
       "title": "Formal Education",
-      "year": "Graduation",
-      "1": "Bachelor's Degree in Computer Science"
+      "year": "In progress"
     }
   },
   "project": {
@@ -93,25 +93,38 @@
     "orange-hub": {
       "description": "Our challenge was to build a website to showcase the Orange's Experience HUB in Petrópolis - RJ. The platform allows users to schedule visits, explore materials about the HUB, learn more about Orange’s products and even generate a personalized report highlighting the services that caught their attention, helping Orange follow up with targeted and relevant information."
     },
-    "mock": {
-      "description": "Brief description of the project goes here."
-    },
     "saq-digital": {
       "description": "Complete financial backoffice for a B2B payment infrastructure platform, built from scratch in under 3 months in a two-person team, replacing the legacy system — supporting 10M+ PIX transactions/day, R$1B+ monthly and clients in 3+ countries, with Next.js, TypeScript, Zustand and React Query. I integrated 50+ endpoints from the company's ecosystem with strong end-to-end typing, granular role-based access control, custom tokenized pagination and dashboards with tables and charts, centralizing operations previously scattered across the legacy system.",
-      "title": "Financial Backoffice"
+      "title": "Financial Backoffice",
+      "metrics": [
+        "10M+ PIX transactions/day",
+        "R$1B+/month",
+        "3+ countries",
+        "50+ endpoints"
+      ]
     },
     "goatcom": {
-      "description": "Complete e-commerce management platform similar to Shopify, with 10+ stores in production and R$50K+ transacted. I worked across all micro-frontends (Angular and Next.js) and contributed to the development of 17+ integrations covering advertising, ERP, marketing, payments, pixels, invoicing, shipping and notifications, delivering 360° visibility of operations for digital marketing professionals."
+      "description": "Complete e-commerce management platform similar to Shopify, with 10+ stores in production and R$50K+ transacted. I worked across all micro-frontends (Angular and Next.js) and contributed to the development of 17+ integrations covering advertising, ERP, marketing, payments, pixels, invoicing, shipping and notifications, delivering 360° visibility of operations for digital marketing professionals.",
+      "metrics": [
+        "10+ stores in production",
+        "R$50K+ transacted",
+        "17+ integrations"
+      ]
     },
     "avaliacao-socioeconomica": {
-      "description": "Socioeconomic assessment system built for the best private university in Brazil. I single-handedly took over a project that had been stalled for 6 months and delivered it to production in under 2 months, with Next.js and Express.js, serving all enrolled students and 25+ coordinators and assistants. I modernized a mostly manual process by centralizing and automating the entire business logic, and refactored the validations with a global Zod schema shared between front-end and back-end, eliminating inconsistencies between layers.",
-      "title": "Socioeconomic Assessment"
+      "description": "Socioeconomic assessment system built for the best private university in Brazil. I single-handedly took over a project that had been stalled for 6 months and delivered it to production in under 3 months, with Next.js and Express.js, serving all enrolled students and 25+ coordinators and assistants. I modernized a mostly manual process by centralizing and automating the entire business logic, and refactored the validations with a global Zod schema shared between front-end and back-end, eliminating inconsistencies between layers.",
+      "title": "Socioeconomic Assessment",
+      "metrics": [
+        "Stalled 6 months → shipped in 3",
+        "All enrolled students",
+        "25+ coordinators"
+      ]
     },
     "explore": "Explore"
   },
   "stack": "Tech stack",
   "stack_back": "Back-end Development",
-  "stack_db": "Databases",
+  "stack_db": "Database & Data",
   "stack_front": "Front-end Development",
   "stack_tools": "Tools",
   "dock": {
@@ -126,12 +139,30 @@
       "role": "Fullstack Developer",
       "period": "Aug. 2025 – Present",
       "delivered": "8+ projects delivered",
-      "highlights": {
-        "1": "Financial backoffice (SAQ Digital)",
-        "2": "360° e-commerce platform (Goatcom)",
-        "3": "Socioeconomic assessment (PUC Rio)",
-        "4": "Legacy modernization & sensitive integrations"
-      }
+      "highlights": [
+        "Development CLI + MCP (20+ professionals)",
+        "Financial backoffice (SAQ Digital)",
+        "360° e-commerce platform (Goatcom)",
+        "Socioeconomic assessment (PUC-Rio)",
+        "Legacy modernization & sensitive integrations"
+      ],
+      "context": "Software house — multiple critical products in parallel, from finance to e-commerce and education"
     }
-  }
+  },
+  "role-tagline": "🇧🇷 AI Product / Full Stack Engineer · TS/Python/Java · LLM Agents · MCP · SDD",
+  "ai": {
+    "title": "AI & Agentic Engineering",
+    "items": [
+      "Internal development CLI adopted by 20+ professionals — skills, rules and agents per department and per stage of development",
+      "In-house MCP servers wired to internal systems and PostgreSQL, driving task control from the CLI and from Claude and Codex",
+      "SDD (Spec-Driven Development) and agentic documentation — specs generated, maintained and versioned by AI",
+      "Harness control that reads each project's own stack and technologies — stack-targeted rules and business-rule validation, plus prompt engineering"
+    ]
+  },
+  "stack_front_note": "Accessibility, responsiveness, Mobile First and micro-frontends",
+  "stack_back_note": "Distributed systems, high availability, microservices, REST, WebSockets, queues and serverless (AWS Lambda)",
+  "stack_db_note": "Relational modeling, migrations and typed ORMs",
+  "stack_tools_note": "TDD with Jest · CI/CD · serverless deploys on AWS Lambda · Scrum and Kanban",
+  "stack_obs": "Observability",
+  "stack_obs_note": "Tracing, metrics, dashboards and product analytics"
 }

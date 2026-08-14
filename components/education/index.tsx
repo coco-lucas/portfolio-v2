@@ -19,11 +19,11 @@ export default function Education() {
           corporation="UNIFESO - Centro Universitário Serra dos Órgãos"
           corporationURL="https://www.unifeso.edu.br/"
           type="university"
-          year={2028}
+          year="2024 – 2028"
         />
       </Reveal>
 
-      <div className="mt-15 flex flex-row sm:gap-1 items-center justify-start w-full">
+      <div className="mt-15 flex flex-row gap-1 items-center justify-start w-full">
         <h3>{t("education.certificate.title")}</h3>
         <Certificate size={30} />
       </div>

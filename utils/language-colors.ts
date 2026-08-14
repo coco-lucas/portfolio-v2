@@ -9,6 +9,7 @@ export const languageColors: Partial<Record<IBadge, string>> = {
   "Next.js": "hover:bg-black",
   HTML: "hover:bg-orange-500",
   CSS: "hover:bg-blue-500",
+  SCSS: "hover:bg-pink-700",
   Tailwind: "hover:bg-cyan-500",
   "Framer Motion": "hover:bg-pink-500",
 
@@ -16,6 +17,9 @@ export const languageColors: Partial<Record<IBadge, string>> = {
   "Node.js": "hover:bg-green-600",
   Java: "hover:bg-orange-600",
   SpringBoot: "hover:bg-green-600",
+  "Spring Security": "hover:bg-green-800",
+  Hibernate: "hover:bg-amber-700",
+  Sequelize: "hover:bg-sky-600",
 
   // Databases
   PostgreSQL: "hover:bg-blue-700",

@@ -1,9 +1,37 @@
-# Website Name
+# Lucas Coco
 
-> Website description
+> AI Product / Full Stack Engineer (Brazil) — TypeScript, Next.js, Node and
+> Python, with AI as part of the engineering workflow. Builds critical web applications:
+> sensitive integrations, precise validation and fast delivery.
 
-## Docs
+## Focus
 
-## Pages
+- Full Stack: TypeScript/React/Next.js, Node.js/NestJS/Express, Python, Java/Spring
+- AI Engineering: LLM agents, subagents, project-specific rules and skills, MCP servers
+- LLM integrations (OpenAI, Claude), prompt engineering, validation of AI-generated code
+- Data: PostgreSQL, MySQL, MariaDB, MongoDB, Prisma, Drizzle
+- Cloud: AWS (Lambda, S3, RDS, CloudWatch, Amplify, CloudFront), Docker, CI/CD
 
-## Optional
+## Selected work
+
+- Financial Backoffice (SAQ Digital) — B2B payment infrastructure backoffice built
+  from scratch in under 3 months by a two-person team, replacing the legacy system.
+  10M+ PIX transactions/day, R$1B+/month, clients in 3+ countries, 50+ integrated
+  endpoints. https://saq.digital/
+- 360° E-commerce Platform (Goatcom) — Shopify-like management platform, 10+ stores
+  in production, 17+ integrations across ads, ERP, payments, invoicing and shipping.
+  https://www.goatcom.io/global
+- Socioeconomic Assessment (PUC Rio) — took over a project stalled for 6 months and
+  shipped it to production in under 2, serving all enrolled students and 25+ staff.
+
+## Contact
+
+- Site: https://lucascoco.com
+- E-mail: dev@lucascoco.com
+- GitHub: https://github.com/coco-lucas
+- LinkedIn: https://linkedin.com/in/coco-lucas
+
+## Languages
+
+- Portuguese: native
+- English: C1 (EF SET certified)

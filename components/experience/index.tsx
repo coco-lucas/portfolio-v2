@@ -4,10 +4,9 @@ import { ArrowUpRight, Briefcase } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import Reveal from "@/components/reveal";
 
-const HIGHLIGHT_KEYS = ["1", "2", "3", "4"] as const;
-
 export default function Experience() {
   const t = useTranslations();
+  const highlights = t.raw("experience.noclaf.highlights") as string[];
 
   return (
     <div className="items-center">
@@ -37,14 +36,19 @@ export default function Experience() {
               {t("experience.noclaf.delivered")}
             </span>
           </div>
-          <div className="mt-2 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-xs text-muted-foreground">
-            {HIGHLIGHT_KEYS.map((key, idx) => (
-              <span key={key} className="flex items-baseline gap-2">
-                {idx > 0 && <span className="text-ring">•</span>}
-                {t(`experience.noclaf.highlights.${key}`)}
-              </span>
+          {/* Software-house context — without it, 2 years against these numbers
+              reads as inflated rather than as many products in parallel. */}
+          <p className="mt-1 text-xs text-muted-foreground">
+            {t("experience.noclaf.context")}
+          </p>
+          <ul className="mt-2 flex flex-col gap-1.5 text-xs text-muted-foreground">
+            {highlights.map((highlight) => (
+              <li key={highlight} className="flex items-start gap-2">
+                <span className="mt-1.5 size-1 shrink-0 rounded-full bg-ring" />
+                {highlight}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </Reveal>
     </div>

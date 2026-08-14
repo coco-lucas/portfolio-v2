@@ -18,6 +18,14 @@ export const NAME_FLIP = 0.7;
 // The dock is the last thing to enter, once the page content is painting
 export const DOCK_DELAY = 0.4;
 
+// Shimmer sweep — the site's one emphasis idiom, on the hero name and the AI
+// section title. Shared so both stay on the same beat when it gets retuned.
+export const SHIMMER = { duration: 0.35, repeatDelay: 3, spread: 8 } as const;
+// Keeps the text in its normal color and sweeps a dimmed band across it; the
+// negative margin cancels the padding the gradient needs to not clip glyphs.
+export const SHIMMER_CLASS =
+  "p-[0.15em] -m-[0.15em] [--base-color:var(--foreground)] [--base-gradient-color:#a1a1aa] dark:[--base-color:var(--foreground)] dark:[--base-gradient-color:#a1a1aa]";
+
 const offsets = {
   up: { y: 12 },
   down: { y: -12 },

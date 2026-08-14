@@ -17,6 +17,7 @@ export const PROJECTS_LIST: IProjectData[] = [
     isFinished: true,
     images: [backoffice + "1.png"],
     descriptionKey: "project.saq-digital.description",
+    metricsKey: "project.saq-digital.metrics",
     badge: [
       "Next.js",
       "TypeScript",
@@ -36,7 +37,8 @@ export const PROJECTS_LIST: IProjectData[] = [
     isFinished: true,
     images: [aval + "1.png"],
     descriptionKey: "project.avaliacao-socioeconomica.description",
-    badge: ["Next.js", "Express.js", "TypeScript", "Zod"],
+    metricsKey: "project.avaliacao-socioeconomica.metrics",
+    badge: ["Next.js", "Express.js", "TypeScript", "Zod", "Sequelize"],
   },
   {
     title: "E-commerce 360",
@@ -45,12 +47,14 @@ export const PROJECTS_LIST: IProjectData[] = [
     isFinished: true,
     images: [goatcom + "1.png"],
     descriptionKey: "project.goatcom.description",
+    metricsKey: "project.goatcom.metrics",
     badge: [
       "Angular",
       "Next.js",
       "React",
       "TypeScript",
       "Tailwind",
+      "SCSS",
       "Framer Motion",
     ],
     deployURL: "https://www.goatcom.io/global",
@@ -63,7 +67,15 @@ export const PROJECTS_LIST: IProjectData[] = [
     // services.jpeg kept its original name in S3 — rename to 2.jpeg to match the convention
     images: [orange + "1.jpeg", orange + "services.jpeg"],
     descriptionKey: "project.orange-hub.description",
-    badge: ["Java", "SpringBoot", "React", "TypeScript", "CSS"],
+    badge: [
+      "Java",
+      "SpringBoot",
+      "Spring Security",
+      "Hibernate",
+      "React",
+      "TypeScript",
+      "CSS",
+    ],
     deployURL:
       "https://www.linkedin.com/posts/elyn-beatriz-v-959381150_ontem-conclu%C3%ADmos-a-%C3%BAltima-etapa-da-resid%C3%AAncia-activity-7275949641450311680-zb16/",
   },

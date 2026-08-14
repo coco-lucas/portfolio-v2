@@ -1,25 +1,11 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import Reveal from "@/components/reveal";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { TECH_STACK } from "@/shared/mocks/tech-stack";
-import { EASE_OUT, fade, staggerContainer } from "@/lib/animations";
+import { fade } from "@/lib/animations";
 import { cn } from "@/lib/utils";
-
-const iconIn: Variants = {
-  hidden: { opacity: 0, x: -8 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.3, ease: EASE_OUT },
-  },
-};
 
 export default function TechStack() {
   const t = useTranslations();
@@ -30,35 +16,37 @@ export default function TechStack() {
         <motion.div
           key={stack.type}
           variants={fade("up")}
-          className="flex flex-col gap-3 py-5 sm:flex-row sm:items-center sm:justify-between"
+          className="flex flex-col gap-2.5 py-5"
         >
-          <div className="flex shrink-0 items-center gap-2 text-muted-foreground">
+          <div className="flex items-center gap-2 text-muted-foreground">
             {stack.icon}
-            <span className="whitespace-nowrap text-lg font-semibold tracking-tight text-foreground">
+            <span className="text-lg font-semibold tracking-tight text-foreground">
               {t(stack.stackName)}
             </span>
           </div>
-          <motion.div
-            variants={staggerContainer(0.05)}
-            className="flex flex-wrap items-center gap-3"
-          >
+          <p className="text-xs text-muted-foreground">
+            {t(stack.noteName)}
+          </p>
+          {/* The chip carries the name, so a square mark and a wide wordmark
+              occupy the same shape — that is what gives the block its rhythm. */}
+          <ul className="flex flex-wrap gap-1.5">
             {stack.techIcons.map((tech) => (
-              <Tooltip key={tech.label}>
-                <TooltipTrigger>
-                  <motion.span
-                    variants={iconIn}
-                    className={cn(
-                      "inline-flex",
-                      tech.invertOnDark && "dark:invert",
-                    )}
-                  >
-                    {tech.icon}
-                  </motion.span>
-                </TooltipTrigger>
-                <TooltipContent>{tech.label}</TooltipContent>
-              </Tooltip>
+              <li
+                key={tech.label}
+                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-secondary px-2 py-1 text-xs text-muted-foreground"
+              >
+                <span
+                  className={cn(
+                    "inline-flex",
+                    tech.invertOnDark && "dark:invert",
+                  )}
+                >
+                  {tech.icon}
+                </span>
+                {tech.label}
+              </li>
             ))}
-          </motion.div>
+          </ul>
         </motion.div>
       ))}
     </Reveal>

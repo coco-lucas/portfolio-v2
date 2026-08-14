@@ -1,9 +1,14 @@
 import type { ReactNode } from "react";
 import {
+  AwsCloudfront,
+  AwsCloudwatch,
+  AwsElasticache,
+  AwsS3,
+  AwsSes,
   Bun,
   ClaudeCode,
+  GoogleAnalytics,
   Langchain,
-  LovableIcon,
   MariadbIcon,
   NodejsIcon,
   Python,
@@ -11,7 +16,6 @@ import {
 } from "@dev.icons/react";
 import {
   DrizzleOrm as DrizzleOrmMono,
-  Ibm as IbmMono,
   McpIcon as McpMono,
   OpenaiIcon as OpenaiMono,
 } from "@dev.icons/react/mono";
@@ -22,8 +26,13 @@ import { cn } from "@/lib/utils";
 // Mono variants follow the current text color.
 const DEV_ICONS = {
   "claude-code": ClaudeCode,
+  "aws-s3": AwsS3,
+  "aws-elasticache": AwsElasticache,
+  "aws-cloudwatch": AwsCloudwatch,
+  "aws-cloudfront": AwsCloudfront,
+  "aws-ses": AwsSes,
+  "google-analytics": GoogleAnalytics,
   langchain: Langchain,
-  lovable: LovableIcon,
   bun: Bun,
   mariadb: MariadbIcon,
   nodejs: NodejsIcon,
@@ -31,7 +40,6 @@ const DEV_ICONS = {
   vite: Vite,
   mcp: McpMono,
   drizzle: DrizzleOrmMono,
-  ibm: IbmMono,
   openai: OpenaiMono,
 } as const;
 
@@ -47,7 +55,9 @@ interface TechIconProps {
 export default function TechIcon({
   name,
   svg,
-  size = 28,
+  // Chip-sized. Font icons get this as an inline fontSize, which beats any
+  // class, so the size has to be settled here — not overridden in CSS.
+  size = 18,
   className,
 }: TechIconProps) {
   if (svg) {

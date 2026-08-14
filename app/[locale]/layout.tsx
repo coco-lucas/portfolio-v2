@@ -1,28 +1,48 @@
 import type { Metadata } from "next";
-import "./styles/globals.css";
+import "../styles/globals.css";
 import "devicon/devicon.min.css";
-import { defaultMetadata } from "@/lib/metadata";
+import { buildDefaultMetadata, personJsonLd } from "@/lib/metadata";
 import { ReactNode } from "react";
 import Script from "next/script";
-import { getLocale, getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { Analytics } from "@vercel/analytics/next";
 import QueryProvider from "./query-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
 import { fontsVariables } from "@/lib/fonts";
-
-export const metadata: Metadata = defaultMetadata;
+import { routing } from "@/i18n/routing";
 
 const GA_ID = "G-336YYBCGDG";
 
-export type Props = {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return buildDefaultMetadata(locale);
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: {
   children: ReactNode;
-};
-export default async function RootLayout({ children }: Props) {
-  const locale = await getLocale();
-  const messages = await getMessages();
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+
+  // Opts this layout into static rendering — without it every page turns
+  // dynamic the moment a translation is read.
+  setRequestLocale(locale);
 
   return (
     <html
@@ -31,12 +51,14 @@ export default async function RootLayout({ children }: Props) {
       suppressHydrationWarning
     >
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <QueryProvider>
           <Toaster />
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <NextIntlClientProvider messages={messages}>
-              {children}
-            </NextIntlClientProvider>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
           </ThemeProvider>
         </QueryProvider>
         <Analytics />
